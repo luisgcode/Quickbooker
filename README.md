@@ -1,7 +1,5 @@
 # Portfolio 2.0
 
-Testing link: https://lgportfolio2.netlify.app/
-
 ## Description
 
 ### Tech Stack (In Progress)
@@ -19,4 +17,9 @@ Testing link: https://lgportfolio2.netlify.app/
 
 ## Credits
 
-Developers: Luis Guaiquirian
+Developers:
+Guaiquirian, Luis
+Khan, Rakib
+Le, Millard
+Owonikoko, Lekan
+Slack, Nicholas
