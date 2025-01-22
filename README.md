@@ -7,7 +7,7 @@ QuickBooker is a simple Event Management System for Small Businesses is a web-ba
 ### Tech Stack (In Progress)
 
 - **Frontend**: React.js with Tailwind CSS
-- **Other Tools**: Git for version control
+- **Other Tools**: Git for version control, Netlify for Live Preview, Jira for Managing.
 
 ### Planned Features
 
