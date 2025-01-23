@@ -11,7 +11,10 @@ export default {
     },
     extend: {
       colors: {
-        highlightColor: "#9698F3",
+        darkBlue: "#1b2554",
+        blue: "#3c5dd8",
+        ligtGray: "#f7f7f7",
+        btnColor: "#5ed5cf",
       },
       spacing: {
         sma_pad: "24px 24px",

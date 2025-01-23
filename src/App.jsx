@@ -1,9 +1,12 @@
+import React from "react";
+import { quickBookerLogo, coverOne } from "./components/media";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold text-red-600">Hello world!</h1>
+      <p>Our logo</p>
+      <img src={quickBookerLogo} alt="QuickBooker Logo" />
     </>
   );
 }
