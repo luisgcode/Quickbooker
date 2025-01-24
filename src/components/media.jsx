@@ -14,4 +14,7 @@ import coverNine from "../assets/images/covers/rest-9.jpg";
 import coverTen from "../assets/images/covers/rest-10.jpg";
 import coverEleven from "../assets/images/covers/rest-11.jpg";
 
-export { quickBookerLogo, coverOne };
+// Illustrations
+import heroIllustration from "../assets/images/illustration.svg";
+
+export { quickBookerLogo, coverOne, heroIllustration };

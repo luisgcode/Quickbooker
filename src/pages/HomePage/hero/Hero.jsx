@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <header className="bg-blue-600 text-white p-8">
+    <header className=" bg-blue  py-20">
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl font-bold">
           Scalable, Powerful, Online Booking API, Built for Modern Enterprises

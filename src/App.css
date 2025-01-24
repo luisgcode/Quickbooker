@@ -48,3 +48,7 @@ img[alt=""] {
   outline-offset: 15px;
   outline: 5px solid blue;
 }
+
+.custom-bg {
+  background-color: #4075f0;
+}

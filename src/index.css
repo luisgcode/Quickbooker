@@ -8,10 +8,8 @@
 @tailwind utilities;
 
 :root {
-  --darkBlue: #1b2554;
-  --blue: #3c5dd8;
-  --lightGray: #f7f7f7;
-  --btnColor: "#5ed5cf";
+  --regularText: #323648;
+  --blueCompany: #196af0;
 }
 
 /* & Typography settings */
@@ -20,6 +18,7 @@ body {
   font-family: "Poppins", serif;
   line-height: 1.4;
   overflow-x: hidden;
+  color: #323648;
 }
 
 h1 {

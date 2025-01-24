@@ -11,14 +11,12 @@ export default {
     },
     extend: {
       colors: {
-        darkBlue: "#1b2554",
-        blue: "#3c5dd8",
-        ligtGray: "#f7f7f7",
-        btnColor: "#5ed5cf",
+        regularText: "#323648",
+        blueCompany: "#196af0",
       },
       spacing: {
         sma_pad: "24px 24px",
-        mid_pad: "40px 120px",
+        mid_pad: "40px 50px",
       },
     },
   },
