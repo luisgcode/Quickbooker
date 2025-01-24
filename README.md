@@ -1,4 +1,8 @@
-# Portfolio 2.0
+# QuickBooker
+
+## Management System
+
+Notion, Jira Board & Jira Backlogs
 
 ## Description
 
@@ -20,8 +24,9 @@ QuickBooker is a simple Event Management System for Small Businesses is a web-ba
 ## Credits
 
 Developers:
-Guaiquirian, Luis
-Khan, Rakib
-Le, Millard
-Owonikoko, Lekan
-Slack, Nicholas
+
+- Guaiquirian, Luis
+- Khan, Rakib
+- Le, Millard
+- Owonikoko, Lekan
+- Slack, Nicholas
