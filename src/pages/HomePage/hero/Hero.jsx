@@ -1,20 +1,19 @@
 import React from "react";
+import { heroIllustration } from "../../../components/media";
 
 const Hero = () => {
   return (
-    <header className=" ">
-      <div className="  mx-auto text-center">
+    <header>
+      <div className="p-sma_pad  md:p-mid_pad text-center">
         <div>
-          <h1 className=" ">
-            Scalable, Powerful, Online Booking API, Built for Modern Enterprises
-          </h1>
+          <h1 className=" ">Effortless Event Management for Businesses.</h1>
           <p className=" ">
-            OnSched is the top booking framework used by Marketplaces,
-            Enterprises, and Digital Publishers.
+            Streamline your bookings and grow your business with our powerful,
+            easy-to-use platform designed for you.
           </p>
         </div>
         <div>
-          <img src="" alt="" />
+          <img src={heroIllustration} alt="Main web illustration" />
         </div>
       </div>
     </header>

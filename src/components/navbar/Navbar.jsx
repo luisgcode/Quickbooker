@@ -1,20 +1,21 @@
 import React from "react";
-import { heroIllustration, quickBookerLogo } from "../media";
+import { quickBookerLogo } from "../media";
 import { FaChevronDown } from "react-icons/fa";
 import { FaArrowRightToBracket } from "react-icons/fa6";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 import "./navbar.css";
 
 const Navbar = () => {
   return (
     <div>
-      <div className=" text-sm top-nav px-[50px] py-2 flex items-center justify-between  ">
+      <div className=" text-sm top-nav px-4 md:px-[50px] py-2 flex items-center justify-between  ">
         <div>
-          <button className="flex items-center gap-2 opacity-70">
+          <button className="flex items-center gap-2 opacity-70 text-blueCompany">
             Sign In <FaArrowRightToBracket />
           </button>
         </div>
-        <div className=" flex gap-10">
+        <div className="flex gap-10">
           <button className="flex items-center gap-2 opacity-70">
             Help Center <FaChevronDown />
           </button>
@@ -32,7 +33,7 @@ const Navbar = () => {
               alt="Company's logo"
             />
           </div>
-          <ul className="flex gap-8">
+          <ul className="hidden md:flex gap-8">
             <li>
               <a className="nav-lins" href="#">
                 Home
@@ -40,17 +41,12 @@ const Navbar = () => {
             </li>
             <li>
               <a className="nav-lins" href="#">
-                About
+                Features
               </a>
             </li>
             <li>
               <a className="nav-lins" href="#">
-                Services
-              </a>
-            </li>
-            <li>
-              <a className="nav-lins" href="#">
-                Contact
+                Pricing
               </a>
             </li>
             <li>
@@ -62,6 +58,10 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
+          {/* Hamburguer menu */}
+          <button className="text-4xl text-blueCompany md:hidden">
+            <RxHamburgerMenu />
+          </button>
         </div>
       </nav>
     </div>
