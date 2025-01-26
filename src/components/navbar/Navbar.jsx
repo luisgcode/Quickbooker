@@ -10,12 +10,12 @@ const Navbar = () => {
     <div>
       <div className=" text-sm top-nav px-[50px] py-2 flex items-center justify-between  ">
         <div>
-          <button className="flex items-center gap-2">
+          <button className="flex items-center gap-2 opacity-70">
             Sign In <FaArrowRightToBracket />
           </button>
         </div>
         <div className=" flex gap-10">
-          <button className="flex items-center gap-2">
+          <button className="flex items-center gap-2 opacity-70">
             Help Center <FaChevronDown />
           </button>
           <button className="flex items-center gap-2 font-semibold">
@@ -32,6 +32,20 @@ const Navbar = () => {
               alt="Company's logo"
             />
           </div>
+          <ul className="flex gap-8">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
         </div>
       </nav>
     </div>
