@@ -34,16 +34,32 @@ const Navbar = () => {
           </div>
           <ul className="flex gap-8">
             <li>
-              <a href="#">Home</a>
+              <a className="nav-lins" href="#">
+                Home
+              </a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a className="nav-lins" href="#">
+                About
+              </a>
             </li>
             <li>
-              <a href="#">Services</a>
+              <a className="nav-lins" href="#">
+                Services
+              </a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a className="nav-lins" href="#">
+                Contact
+              </a>
+            </li>
+            <li>
+              <a
+                className="started-btn bg-blueCompany text-white py-3 px-4 rounded-full"
+                href="#"
+              >
+                Get Started
+              </a>
             </li>
           </ul>
         </div>
