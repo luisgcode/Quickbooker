@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import promotionVideo from "../../../assets/videos/promotion.mp4";
 
 const Hero = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Función para intentar reproducir el video
+    const playVideo = async () => {
+      try {
+        if (videoRef.current) {
+          await videoRef.current.play();
+        }
+      } catch (err) {
+        console.log("Reproducción automática no permitida", err);
+      }
+    };
+
+    playVideo();
+  }, []);
+
   return (
     <header>
       <div className="flex gap-10 flex-col p-sma_pad md:py-[10px] md:px-[50px]">
@@ -19,7 +36,15 @@ const Hero = () => {
           </button>
         </div>
         <div className="w-full">
-          <video controls loop muted autoPlay>
+          <video
+            ref={videoRef}
+            playsInline
+            loop
+            muted
+            autoPlay
+            preload="auto"
+            className="w-full h-auto object-cover"
+          >
             <source src={promotionVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
@@ -28,5 +53,4 @@ const Hero = () => {
     </header>
   );
 };
-
 export default Hero;
