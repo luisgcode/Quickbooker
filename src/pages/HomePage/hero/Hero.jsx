@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { promotionVideo } from "../../../components/media";
+import { promotionVideo } from "../../../../public/videos/promotion.mp4";
 
 const Hero = () => {
   const videoRef = useRef(null);
