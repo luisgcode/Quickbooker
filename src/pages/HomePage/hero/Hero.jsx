@@ -1,18 +1,4 @@
-import React, { useEffect, useRef } from "react";
-import { promotionVideo } from "../../../components/media";
-
 const Hero = () => {
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch((error) => {
-        console.error("error", error);
-      });
-    }
-  }, []);
-
   return (
     <header>
       <div className="flex gap-10 flex-col p-sma_pad md:py-[10px] md:px-[50px]">
@@ -30,8 +16,9 @@ const Hero = () => {
           </button>
         </div>
         <div className="w-full">
-          <video ref={videoRef} loop muted>
-            <source src={promotionVideo} type="video/mp4" />
+          <video controls loop muted autoPlay>
+            {/* Cambiar la referencia al video */}
+            <source src="/videos/promotion.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
