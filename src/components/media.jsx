@@ -18,6 +18,6 @@ import coverEleven from "../assets/images/covers/rest-11.jpg";
 import heroIllustration from "../assets/images/illustration.svg";
 
 // video
-import promotionVideo from "../../public/videos/promotion.mp4";
+import promotionVideo from "../assets/videos/promotion.mp4";
 
 export { quickBookerLogo, coverOne, heroIllustration, promotionVideo };

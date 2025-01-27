@@ -1,3 +1,6 @@
+import React from "react";
+import promotionVideo from "../../../assets/videos/promotion.mp4";
+
 const Hero = () => {
   return (
     <header>
@@ -17,8 +20,7 @@ const Hero = () => {
         </div>
         <div className="w-full">
           <video controls loop muted autoPlay>
-            {/* Cambiar la referencia al video */}
-            <source src="/videos/promotion.mp4" type="video/mp4" />
+            <source src={promotionVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
