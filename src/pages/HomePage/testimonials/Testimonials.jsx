@@ -1,31 +1,53 @@
 import React from "react";
 
-const testimonials = [
-  {
-    name: "Daphne Butterfield",
-    role: "CTO, Amazing Network",
-    quote:
-      "OnSched has made customer scheduling seamless for our company. We’ve seen great success and would highly recommend this company.",
-  },
-];
-
 const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "John Doe",
+      review: "Amazing platform! Found the perfect venue for my event.",
+      image: "https://via.placeholder.com/100",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      review: "Easy to use and great customer support.",
+      image: "https://via.placeholder.com/100",
+    },
+    {
+      id: 3,
+      name: "Mike Johnson",
+      review: "Highly recommend for small business events.",
+      image: "https://via.placeholder.com/100",
+    },
+  ];
+
   return (
-    <section className="py-12">
-      this is testimonials
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl font-bold">You’re in good company</h2>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-100 p-6 rounded-lg shadow">
-              <p className="italic">"{testimonial.quote}"</p>
-              <h4 className="mt-4 font-semibold">{testimonial.name}</h4>
-              <p className="text-sm text-gray-500">{testimonial.role}</p>
+    <div className="bg-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+          What Our Customers Say
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.id}
+              className="bg-gray-50 p-6 rounded-lg shadow-lg text-center"
+            >
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-20 h-20 rounded-full mx-auto mb-4"
+              />
+              <h3 className="text-xl font-semibold text-gray-800">
+                {testimonial.name}
+              </h3>
+              <p className="text-gray-600 mt-2">{testimonial.review}</p>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

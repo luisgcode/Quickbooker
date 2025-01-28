@@ -17,7 +17,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-10">
           <button className="flex items-center gap-2 opacity-70">
-            Heldp Center <FaChevronDown />
+            Help Center <FaChevronDown />
           </button>
           <button className="flex items-center gap-2 font-semibold">
             ENG <FaChevronDown />

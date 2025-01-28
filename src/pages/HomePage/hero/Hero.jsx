@@ -21,8 +21,8 @@ const Hero = () => {
 
   return (
     <header>
-      <div className="flex gap-10 flex-col p-sma_pad md:py-[10px] md:px-[50px]">
-        <div className="flex flex-col gap-6">
+      <div className="flex gap-10 flex-col p-sma_pad md:py-[50px] md:px-[50px] md:flex-row items-center">
+        <div className="flex flex-col gap-2">
           <h1>Effortless Event Management for Businesses.</h1>
           <p>
             Streamline your bookings and grow your business with our powerful,
