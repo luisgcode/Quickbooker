@@ -16,7 +16,7 @@ const Hero = () => {
       <div className="flex gap-10 flex-col p-sma_pad md:py-[50px] md:px-[80px] md:flex-row items-center">
         <div className="flex flex-col gap-5">
           <h1>
-            Find the <span className="text-blueCompany">Perfect Venue</span>
+            Find the <span className="text-blueCompany">Perfect Venue </span>
             for Your Event.
           </h1>
           <p className="max-w-[50ch]">

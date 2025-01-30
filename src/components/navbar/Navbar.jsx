@@ -30,9 +30,9 @@ const Navbar = () => {
   return (
     <div>
       <div className="text-sm top-nav text-center py-3 bg-gradient-to-r from-blueCompany to-blue-500 text-white font-bold">
-        🎉🎉Today's the day! Join the grand opening celebration at{" "}
-        <b className="underline ">Fanshawe Cuisine</b> for an unforgettable
-        experience. 🎉🎉
+        🎉🎉Today's the day! Join the grand opening celebration at
+        <b className="underline "> Carlo's Baker Toasted </b> for an
+        unforgettable experience. 🎉🎉
         <a
           href="#"
           className="ml-2 bg-white text-blueCompany px-3 py-1 rounded-full   transition duration-300"
