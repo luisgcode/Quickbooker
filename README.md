@@ -1,7 +1,5 @@
 # QuickBooker
 
-Testing link: https://quickbooker.netlify.app/
-
 ## Management System
 
 Notion, Jira Board & Jira Backlogs
@@ -28,7 +26,3 @@ QuickBooker is a simple Event Management System for Small Businesses is a web-ba
 Developers:
 
 - Guaiquirian, Luis
-- Khan, Rakib
-- Le, Millard
-- Owonikoko, Lekan
-- Slack, Nicholas
