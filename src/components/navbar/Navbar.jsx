@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { quickBookerLogo } from "../media";
 import { FaChevronDown, FaTimes } from "react-icons/fa";
-import { FaArrowRightToBracket } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { FaUserAlt } from "react-icons/fa";
+import { IoLogIn } from "react-icons/io5";
+import { FaUserCheck } from "react-icons/fa";
+
 import "./navbar.css";
 
 const Navbar = () => {
@@ -26,54 +29,19 @@ const Navbar = () => {
 
   return (
     <div>
-      {/* Top Navbar */}
-      <div className="text-sm top-nav px-4 md:px-[50px] py-2 flex items-center justify-between">
-        <div>
-          <button className="flex items-center gap-2 opacity-70 text-blueCompany">
-            Sign In <FaArrowRightToBracket />
-          </button>
-        </div>
-        <div className="flex gap-10">
-          <div className="relative">
-            <button
-              className="flex items-center gap-2 opacity-70"
-              onClick={toggleHelpCenter}
-            >
-              Help Center <FaChevronDown />
-            </button>
-            {isHelpCenterOpen && (
-              <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                  FAQ
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                  Contact Support
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                  Documentation
-                </a>
-              </div>
-            )}
-          </div>
-          <div className="relative">
-            <button
-              className="flex items-center gap-2 font-semibold"
-              onClick={toggleLanguage}
-            >
-              ENG <FaChevronDown />
-            </button>
-            {isLanguageOpen && (
-              <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                  English
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                  Spanish
-                </a>
-              </div>
-            )}
-          </div>
-        </div>
+      <div className="text-sm top-nav text-center py-3 bg-gradient-to-r from-blueCompany to-blue-500 text-white font-bold">
+        🎉🎉Today's the day! Join the grand opening celebration at{" "}
+        <b className="underline ">Fanshawe Cuisine</b> for an unforgettable
+        experience. 🎉🎉
+        <a
+          href="#"
+          className="ml-2 bg-white text-blueCompany px-3 py-1 rounded-full   transition duration-300"
+        >
+          More information
+        </a>
+        <button className="ml-2 text-white hover:text-gray-200 transition duration-300">
+          &times;
+        </button>
       </div>
 
       {/* Main Navigation */}
@@ -87,29 +55,33 @@ const Navbar = () => {
             />
           </div>
           <ul className="hidden md:flex gap-8">
-            <li>
-              <a className="nav-lins" href="#">
-                Home
-              </a>
-            </li>
-            <li>
-              <a className="nav-lins" href="#">
-                Features
-              </a>
-            </li>
-            <li>
-              <a className="nav-lins" href="#">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                className="started-btn bg-blueCompany text-white py-3 px-4 rounded-full"
-                href="#"
+            <div className="relative">
+              <button
+                className="flex items-center gap-2  opacity-75"
+                onClick={toggleLanguage}
               >
-                Get Started
-              </a>
-            </li>
+                ENG <FaChevronDown />
+              </button>
+              {isLanguageOpen && (
+                <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                    English
+                  </a>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                    Spanish
+                  </a>
+                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                    French
+                  </a>
+                </div>
+              )}
+            </div>
+            <button className="flex items-center gap-1 text-blueCompany font-semibold">
+              Log in <IoLogIn />
+            </button>
+            <button className="flex items-center gap-1 text-blueCompany font-semibold">
+              Sign Up <FaUserCheck />
+            </button>
           </ul>
           {/* Hamburger Menu Button */}
           <button

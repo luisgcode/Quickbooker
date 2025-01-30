@@ -28,9 +28,7 @@ const FeaturedVenues = () => {
   return (
     <div className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          Featured Venues
-        </h2>
+        <h2 className="text-3xl font-bold text-center  mb-8">Suggestions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {venues.map((venue) => (
             <div
@@ -43,9 +41,7 @@ const FeaturedVenues = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800">
-                  {venue.name}
-                </h3>
+                <h3 className="text-xl font-semibold ">{venue.name}</h3>
                 <p className="text-gray-600 mt-2">{venue.location}</p>
                 <p className="text-gray-600 mt-2">Capacity: {venue.capacity}</p>
                 <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
