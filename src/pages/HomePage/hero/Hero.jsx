@@ -27,7 +27,6 @@ const Hero = () => {
         <div className="w-full flex flex-col gap-6">
           {/* Search Bar */}
           <div className="relative">
-            {" "}
             <FaSearch className="absolute top-5 left-3 opacity-30" />
             <input
               type="text"

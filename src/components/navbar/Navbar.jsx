@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { quickBookerLogo } from "../media";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { IoLogIn } from "react-icons/io5";
-import { FaUserCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import "./navbar.css";
@@ -39,41 +38,44 @@ const Navbar = () => {
               alt="Company's logo"
             />
           </div>
-          <ul className="hidden md:flex gap-8">
-            {currentLanguage === "en" ? (
-              <button
-                onClick={() => {
-                  handleLanguage("sp");
-                  setCurrentLanguage("sp");
-                }}
-              >
-                SPA
-              </button>
-            ) : currentLanguage === "sp" ? (
-              <button
-                onClick={() => {
-                  handleLanguage("fr");
-                  setCurrentLanguage("fr");
-                }}
-              >
-                FRA
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  handleLanguage("en");
-                  setCurrentLanguage("en");
-                }}
-              >
-                ENG
-              </button>
-            )}
-            <button className="flex items-center gap-1 text-blueCompany font-semibold">
-              Log in <IoLogIn />
-            </button>
-            <button className="flex items-center gap-1 text-blueCompany font-semibold">
-              Sign Up <FaUserCheck />
-            </button>
+          <ul className="hidden md:flex gap-6 items-center">
+            <li className="text-sm">
+              {currentLanguage === "en" ? (
+                <button
+                  onClick={() => {
+                    handleLanguage("fr");
+                    setCurrentLanguage("fr");
+                  }}
+                >
+                  FRA
+                </button>
+              ) : currentLanguage === "fr" ? (
+                <button
+                  onClick={() => {
+                    handleLanguage("sp");
+                    setCurrentLanguage("sp");
+                  }}
+                >
+                  SPA
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    handleLanguage("en");
+                    setCurrentLanguage("en");
+                  }}
+                >
+                  ENG
+                </button>
+              )}
+            </li>
+            <Link to="/">Home</Link>
+            <li>
+              <a href="#" className=" ">
+                Log in
+              </a>
+            </li>
+            <Link to="/signup">Sign Up</Link>
           </ul>
           {/* Hamburger Menu Button */}
           <button
