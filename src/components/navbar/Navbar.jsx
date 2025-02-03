@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import { quickBookerLogo } from "../media";
-import { FaChevronDown, FaTimes } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { FaUserAlt } from "react-icons/fa";
 import { IoLogIn } from "react-icons/io5";
 import { FaUserCheck } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 import "./navbar.css";
 
 const Navbar = () => {
-  const [isHelpCenterOpen, setIsHelpCenterOpen] = useState(false);
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [t, i18n] = useTranslation("global");
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleHelpCenter = () => {
-    setIsHelpCenterOpen(!isHelpCenterOpen);
-    setIsLanguageOpen(false); // Close the other dropdown
-  };
+  //   Handle language change
+  function handleLanguage(lang) {
+    i18n.changeLanguage(lang);
+  }
 
-  const toggleLanguage = () => {
-    setIsLanguageOpen(!isLanguageOpen);
-    setIsHelpCenterOpen(false); // Close the other dropdown
-  };
+  const [currentLanguage, setCurrentLanguage] = React.useState(i18n.language);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -30,18 +26,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="text-sm top-nav text-center py-3 bg-gradient-to-r from-blueCompany to-blue-500 text-white font-bold">
-        🎉🎉Today's the day! Join the grand opening celebration at
-        <b className="underline "> Carlo's Baker Toasted </b> for an
-        unforgettable experience. 🎉🎉
-        <a
-          href="#"
-          className="ml-2 bg-white text-blueCompany px-3 py-1 rounded-full   transition duration-300"
-        >
-          More information
-        </a>
-        <button className="ml-2 text-white hover:text-gray-200 transition duration-300">
-          &times;
-        </button>
+        <p>{t("topBar.news")}</p>
       </div>
 
       {/* Main Navigation */}
@@ -55,27 +40,34 @@ const Navbar = () => {
             />
           </div>
           <ul className="hidden md:flex gap-8">
-            <div className="relative">
+            {currentLanguage === "en" ? (
               <button
-                className="flex items-center gap-2  opacity-75"
-                onClick={toggleLanguage}
+                onClick={() => {
+                  handleLanguage("sp");
+                  setCurrentLanguage("sp");
+                }}
               >
-                ENG <FaChevronDown />
+                SPA
               </button>
-              {isLanguageOpen && (
-                <div className="absolute mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg">
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                    English
-                  </a>
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                    Spanish
-                  </a>
-                  <a href="#" className="block px-4 py-2 hover:bg-gray-100">
-                    French
-                  </a>
-                </div>
-              )}
-            </div>
+            ) : currentLanguage === "sp" ? (
+              <button
+                onClick={() => {
+                  handleLanguage("fr");
+                  setCurrentLanguage("fr");
+                }}
+              >
+                FRA
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  handleLanguage("en");
+                  setCurrentLanguage("en");
+                }}
+              >
+                ENG
+              </button>
+            )}
             <button className="flex items-center gap-1 text-blueCompany font-semibold">
               Log in <IoLogIn />
             </button>
