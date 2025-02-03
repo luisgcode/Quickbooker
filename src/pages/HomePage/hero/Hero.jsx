@@ -1,8 +1,10 @@
 import React from "react";
 import "./Hero.css";
 import { FaSearch } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+  const [t, i18n] = useTranslation("global");
   const popularSearches = [
     "Wedding Venues",
     "Conference Rooms",
@@ -19,10 +21,7 @@ const Hero = () => {
             Find the <span className="text-blueCompany">Perfect Venue </span>
             for Your Event.
           </h1>
-          <p className="max-w-[50ch]">
-            Discover and book extraordinary venues for any occasion. From
-            intimate gatherings to grand celebrations.
-          </p>
+          <p className="max-w-[50ch]">{t("hero.description")}</p>
         </div>
 
         <div className="w-full flex flex-col gap-6">
