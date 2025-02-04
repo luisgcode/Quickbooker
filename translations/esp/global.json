@@ -4,5 +4,12 @@
   },
   "hero": {
     "description": "Descubre y reserva lugares extraordinarios para cualquier ocasión. Desde reuniones íntimas hasta grandes celebraciones."
+  },
+  "signUp": {
+    "title": "Elige Tu Tipo de Cuenta",
+    "clientOptionTitle": "Regístrate como Cliente",
+    "clientOptionDescription": "Encuentra y reserva lugares perfectos para tus eventos.",
+    "ownerOptionTitle": "Regístrate como Propietario de Negocio",
+    "ownerOptionDescription": "Lista tu lugar y comienza a aceptar reservas."
   }
 }
