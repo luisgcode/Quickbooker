@@ -3,6 +3,7 @@ import { quickBookerLogo } from "../media";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { MdLanguage } from "react-icons/md";
 
 import "./navbar.css";
 
@@ -42,29 +43,35 @@ const Navbar = () => {
             <li className="text-sm">
               {currentLanguage === "en" ? (
                 <button
+                  className="flex items-center gap-1 border-2 border-blueCompany rounded-md px-2 py-2 text-blueCompany min-w-[68px]"
                   onClick={() => {
                     handleLanguage("fr");
                     setCurrentLanguage("fr");
                   }}
                 >
+                  <MdLanguage />
                   FRA
                 </button>
               ) : currentLanguage === "fr" ? (
                 <button
+                  className="flex items-center gap-1 border-2 border-blueCompany rounded-md px-2 py-2 text-blueCompany min-w-[68px]"
                   onClick={() => {
                     handleLanguage("sp");
                     setCurrentLanguage("sp");
                   }}
                 >
+                  <MdLanguage />
                   SPA
                 </button>
               ) : (
                 <button
+                  className="flex items-center gap-1 border-2 border-blueCompany rounded-md px-2 py-2 text-blueCompany min-w-[68px]"
                   onClick={() => {
                     handleLanguage("en");
                     setCurrentLanguage("en");
                   }}
                 >
+                  <MdLanguage />
                   ENG
                 </button>
               )}
@@ -75,7 +82,7 @@ const Navbar = () => {
                 Log in
               </a>
             </li>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup">Sign up</Link>
           </ul>
           {/* Hamburger Menu Button */}
           <button
