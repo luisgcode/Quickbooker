@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { MdEmail, MdLock, MdPerson, MdLocationCity } from "react-icons/md"; // Agrega el icono de la ciudad
+import { MdEmail, MdLock, MdPerson, MdLocationCity } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -28,8 +28,8 @@ const SignUp = () => {
       );
       console.log("User registered:", userCredential.user);
 
-      // Redirigir al LoginUserPage después del registro exitoso
-      navigate("/login-user"); // Redirige a la página de login de usuario
+      // Redirigir al UserView después del registro exitoso
+      navigate("/userview"); // Redirige a la página de login de usuario
     } catch (error) {
       console.error("Error signing up:", error);
     }
@@ -160,7 +160,7 @@ const SignUp = () => {
                   type="submit"
                   className="w-full bg-blue-600 text-white rounded-md py-2 px-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:ring-offset-2"
                 >
-                  Sign Up as Client
+                  Sign Up
                 </button>
               </form>
             </div>
