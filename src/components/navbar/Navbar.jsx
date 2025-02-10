@@ -33,11 +33,13 @@ const Navbar = () => {
       <nav>
         <div className="p-sma_pad navigation flex items-center justify-between md:p-mid_pad">
           <div className="logo">
-            <img
-              className="max-w-40"
-              src={quickBookerLogo}
-              alt="Company's logo"
-            />
+            <Link to="/">
+              <img
+                className="max-w-40"
+                src={quickBookerLogo}
+                alt="Company's logo"
+              />
+            </Link>
           </div>
           <ul className="hidden md:flex gap-6 items-center">
             <li className="text-sm">
