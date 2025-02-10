@@ -77,11 +77,6 @@ const Navbar = () => {
               )}
             </li>
             <Link to="/">Home</Link>
-            <li>
-              <a href="#" className=" ">
-                Log in
-              </a>
-            </li>
             <Link to="/signup">Sign up</Link>
           </ul>
           {/* Hamburger Menu Button */}
