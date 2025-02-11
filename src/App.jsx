@@ -13,7 +13,7 @@ import Footer from './components/footer/Footer';
 
 function App() {
   return (
-    <>
+    <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -25,8 +25,8 @@ function App() {
         {/* Ruta para Admin View */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
-    </>
+      <Footer /> {/* Footer is now inside the same wrapper */}
+    </div>
   );
 }
 
