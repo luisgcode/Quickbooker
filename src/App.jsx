@@ -25,7 +25,7 @@ function App() {
         {/* Ruta para Admin View */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer /> {/* Footer is now inside the same wrapper */}
+      <Footer /> 
     </div>
   );
 }
