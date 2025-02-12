@@ -13,10 +13,11 @@ export default {
       colors: {
         regularText: "#323648",
         blueCompany: "#196af0",
+        footerColor: "#1f252c  ",
       },
       spacing: {
         sma_pad: "24px 24px",
-        mid_pad: "30px 80px",
+        mid_pad: "30px 120px",
       },
     },
   },

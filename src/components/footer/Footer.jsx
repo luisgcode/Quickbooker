@@ -1,77 +1,108 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+
+import { BiSupport } from "react-icons/bi";
+import { RiCompassDiscoverLine } from "react-icons/ri";
+import { FaList } from "react-icons/fa6";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-f5f5f5  py-8">
-      <div className="max-w-7xl mx-auto text-center px-4">
-        <div className="flex justify-center space-x-6 mb-4">
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-          >
-            <FaTwitter className="text-white text-2xl hover:text-gray-300 transition" />
-          </a>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <FaFacebookF className="text-white text-2xl hover:text-gray-300 transition" />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <FaInstagram className="text-white text-2xl hover:text-gray-300 transition" />
-          </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="YouTube"
-          >
-            <FaYoutube className="text-white text-2xl hover:text-gray-300 transition" />
-          </a>
-        </div>
+    <footer className="bg-footerColor p-sma_pad md:p-20  text-white">
+      <nav className="flex flex-col md:flex-row w-full gap-10  md:gap-24 justify-between">
+        {/* Support */}
+        <div className=" ">
+          <p className="font-semibold mb-6 flex gap-2">
+            <BiSupport />
+            Support
+          </p>
 
-        <nav className="mb-4">
-          <ul className="flex flex-wrap justify-center space-x-6 text-sm">
+          <ul className="text-sm flex flex-col gap-2">
             <li>
-              <a href="/about" className="hover:underline">
-                About Us
-              </a>
+              <a href="/faq">FAQ</a>
             </li>
             <li>
-              <a href="/services" className="hover:underline">
-                Services
-              </a>
+              <a href="/contact">Contact Us</a>
             </li>
             <li>
-              <a href="/contact" className="hover:underline">
-                Contact
-              </a>
+              <a href="/terms"> Conditions</a>
             </li>
             <li>
-              <a href="/privacy" className="hover:underline">
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a href="/terms" className="hover:underline">
-                Terms of Service
-              </a>
+              <a href="/privacy">Privacy Policy</a>
             </li>
           </ul>
-        </nav>
+        </div>
+        {/* Discover */}
+        <div className=" ">
+          <p className="font-semibold mb-6 flex gap-2">
+            <RiCompassDiscoverLine />
+            Discover
+          </p>
+          <ul className="text-sm flex flex-col gap-2">
+            <li>
+              <a href="/spaces">Find a Space</a>
+            </li>
+            <li>
+              <a href="/how-it-works">How It Works</a>
+            </li>
+            <li>
+              <a href="/pricing">Pricing</a>
+            </li>
+            <li>
+              <a href="/reviews">Customer Reviews</a>
+            </li>
+          </ul>
+        </div>
+        {/* space */}
+        <div className=" ">
+          <p className="font-semibold mb-6 flex gap-2">
+            <FaList />
+            List your space
+          </p>
+          <ul className="text-sm flex flex-col gap-2">
+            <li>
+              <a href="/host">Become a Host</a>
+            </li>
+            <li>
+              <a href="/host-guide">Hosting Guide</a>
+            </li>
+            <li>
+              <a href="/safety">Safety & Security</a>
+            </li>
+            <li>
+              <a href="/support">Host Support</a>
+            </li>
+          </ul>
+        </div>
+        {/* Social */}
+        <div className=" ">
+          <p className="font-semibold mb-6 flex gap-2">
+            <FaMagnifyingGlass />
+            Find us
+          </p>
+          <ul className="text-sm flex flex-col gap-2">
+            <li>
+              <a href="/host">Instagram</a>
+            </li>
+            <li>
+              <a href="/host-guide">Linkedin</a>
+            </li>
+            <li>
+              <a href="/safety">Youtube</a>
+            </li>
+            <li>
+              <a href="/support">Facebook</a>
+            </li>
+          </ul>
+        </div>
 
-        <p className="text-sm">© 2025 QuickBooker. All rights reserved.</p>
-      </div>
+        {/* accessibility */}
+        <div className=" flex flex-col items-end gap-2 text-sm">
+          <p className="font-semibold">Contact</p>
+          <p>help@quickobooker.com</p>
+          <p>London, Ontario, Canada.</p>
+          <p> + 1 (437) 669-1234</p>
+        </div>
+      </nav>
     </footer>
   );
 };
