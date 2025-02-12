@@ -4,11 +4,13 @@ import { BiSupport } from "react-icons/bi";
 import { RiCompassDiscoverLine } from "react-icons/ri";
 import { FaList } from "react-icons/fa6";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaEnvelope } from "react-icons/fa";
+import { IoAccessibility } from "react-icons/io5";
 
 const Footer = () => {
   return (
     <footer className="bg-footerColor p-sma_pad md:p-20  text-white">
-      <nav className="flex flex-col md:flex-row w-full gap-10  md:gap-24 justify-between">
+      <nav className="flex flex-col  md:flex-row w-full gap-10 justify-between">
         {/* Support */}
         <div className=" ">
           <p className="font-semibold mb-6 flex gap-2">
@@ -94,10 +96,36 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-
-        {/* accessibility */}
+        {/* Accesibility */}
+        <div className=" ">
+          <p className="font-semibold mb-6 flex gap-2">
+            <IoAccessibility />
+            Accesibility
+          </p>
+          <ul className="text-sm flex flex-col gap-2">
+            <li>
+              <a href="/host">Languages</a>
+            </li>
+            <li>
+              <a href="/host-guide">Contrast</a>
+            </li>
+            <li>
+              <a href="/safety">Text Size</a>
+            </li>
+            <li>
+              <a href="/support">Screen Reader</a>
+            </li>{" "}
+            <li>
+              <a href="/support">Guides</a>
+            </li>
+          </ul>
+        </div>
+        {/* Contact */}
         <div className=" flex flex-col items-end gap-2 text-sm">
-          <p className="font-semibold">Contact</p>
+          <p className="font-semibold flex gap-2">
+            <FaEnvelope />
+            Contact
+          </p>
           <p>help@quickobooker.com</p>
           <p>London, Ontario, Canada.</p>
           <p> + 1 (437) 669-1234</p>
