@@ -1,4 +1,7 @@
 import React from "react";
+import { FaSearch } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
 
 const HowItWorks = () => {
   const steps = [
@@ -6,19 +9,19 @@ const HowItWorks = () => {
       id: 1,
       title: "Browse Venues",
       description: "Explore a variety of venues tailored to your needs.",
-      icon: "🔍",
+      icon: <FaSearch />,
     },
     {
       id: 2,
       title: "Check Availability",
-      description: "View real-time availability and pricing.",
-      icon: "📅",
+      description: "View real-time availability, configuration and pricing.",
+      icon: <FaCalendarAlt />,
     },
     {
       id: 3,
       title: "Book & Confirm",
       description: "Reserve your venue instantly and receive confirmation.",
-      icon: "✅",
+      icon: <FaCheckCircle />,
     },
   ];
 
@@ -30,11 +33,11 @@ const HowItWorks = () => {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="bg-white p-6 rounded-lg shadow-lg text-center"
+              className=" flex-col flex items-center justify-center"
             >
-              <div className="text-4xl mb-4">{step.icon}</div>
-              <h3 className="text-xl font-semibold ">{step.title}</h3>
-              <p className="text-gray-600 mt-2">{step.description}</p>
+              <div className="text-4xl">{step.icon}</div>
+              <h4 className="">{step.title}</h4>
+              <p className=" ">{step.description}</p>
             </div>
           ))}
         </div>
