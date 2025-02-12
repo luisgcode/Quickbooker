@@ -4,6 +4,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MdLanguage } from "react-icons/md";
+import ThemeToggle from "../Mode/ThemeToggle";
 
 import "./navbar.css";
 
@@ -42,10 +43,13 @@ const Navbar = () => {
             </Link>
           </div>
           <ul className="hidden md:flex gap-6 items-center">
+            <Link to="/">Home</Link>
+            <Link to="/signup">Sign up</Link>
+            <ThemeToggle />
             <li className="text-sm">
               {currentLanguage === "en" ? (
                 <button
-                  className="flex items-center gap-1 border-2 border-blueCompany rounded-md px-2 py-2 text-blueCompany min-w-[68px]"
+                  className="flex items-center gap-1 text-blueCompany min-w-[45px]"
                   onClick={() => {
                     handleLanguage("fr");
                     setCurrentLanguage("fr");
@@ -56,7 +60,7 @@ const Navbar = () => {
                 </button>
               ) : currentLanguage === "fr" ? (
                 <button
-                  className="flex items-center gap-1 border-2 border-blueCompany rounded-md px-2 py-2 text-blueCompany min-w-[68px]"
+                  className="flex items-center gap-1   text-blueCompany min-w-[45px]"
                   onClick={() => {
                     handleLanguage("sp");
                     setCurrentLanguage("sp");
@@ -67,7 +71,7 @@ const Navbar = () => {
                 </button>
               ) : (
                 <button
-                  className="flex items-center gap-1 border-2 border-blueCompany rounded-md px-2 py-2 text-blueCompany min-w-[68px]"
+                  className="flex items-center gap-1   text-blueCompany min-w-[45px]"
                   onClick={() => {
                     handleLanguage("en");
                     setCurrentLanguage("en");
@@ -78,8 +82,6 @@ const Navbar = () => {
                 </button>
               )}
             </li>
-            <Link to="/">Home</Link>
-            <Link to="/signup">Sign up</Link>
           </ul>
           {/* Hamburger Menu Button */}
           <button

@@ -9,7 +9,7 @@ import { IoAccessibility } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <footer className="bg-footerColor p-sma_pad md:p-20  text-white">
+    <footer className="bg-footerColor p-sma_pad md:p-20  text-white  dark:text-black dark:bg-white dark:border-t-2">
       <nav className="flex flex-col  md:flex-row w-full gap-10 justify-between">
         {/* Support */}
         <div className=" ">
@@ -18,7 +18,7 @@ const Footer = () => {
             Support
           </p>
 
-          <ul className="text-sm flex flex-col gap-2">
+          <ul className="text-sm flex flex-col gap-2 ">
             <li>
               <a href="/faq">FAQ</a>
             </li>

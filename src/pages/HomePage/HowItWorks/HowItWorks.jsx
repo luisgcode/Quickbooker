@@ -28,13 +28,14 @@ const HowItWorks = () => {
   return (
     <div>
       <div className="p-sma_pad md:p-mid_pad">
-        <h2 className="">How It Works</h2>
+        <h2 className="">3 Simple steps</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div
               key={step.id}
-              className=" flex-col flex items-center justify-center"
+              className=" flex-col flex items-center justify-center gap-3"
             >
+              <p className="text-xl">{step.id}</p>
               <div className="text-4xl">{step.icon}</div>
               <h4 className="">{step.title}</h4>
               <p className=" ">{step.description}</p>
