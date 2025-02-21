@@ -19,46 +19,6 @@
         "Gym",
         "Room service"
       ]
-    },
-    {
-      "user_id": 1,
-      "name": "Fanshawe Gym",
-      "address": {
-        "street": "1001 Fanshawe College Blvd",
-        "city": "London",
-        "postal_code": "N5Y 5R6",
-        "province": "ON",
-        "country": "Canada"
-      },
-      "contact": {
-        "email": "info@fanshawe.com",
-        "phone": "(519) 452-4277"
-      },
-      "amenities": [
-        "Gym equipment",
-        "Scoreboard",
-        "Basketball court"
-      ]
-    },
-    {
-      "user_id": 1,
-      "name": "Fanshawe Dorm",
-      "address": {
-        "street": "1001 Fanshawe College Blvd",
-        "city": "London",
-        "postal_code": "N5Y 5R6",
-        "province": "ON",
-        "country": "Canada"
-      },
-      "contact": {
-        "email": "info@fanshawe.com",
-        "phone": "(519) 452-4277"
-      },
-      "amenities": [
-        "Single bed",
-        "Fridge",
-        "Microwave"
-      ]
     }
   ]
   
