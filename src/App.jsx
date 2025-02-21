@@ -11,10 +11,12 @@ import AdminLogin from "./components/AdminLogin/AdminLogin"; // Asegúrate de im
 import AdminView from "./components/AdminView/AdminView"; // Asegúrate de importar el componente
 import Footer from "./components/footer/Footer";
 
+import Chatbot from "./components/ChatBot/Chatbot";
+
 function App() {
   return (
     <div>
-      <Navbar />
+      <Navbar /><Chatbot />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/userview" element={<UserView />} />
