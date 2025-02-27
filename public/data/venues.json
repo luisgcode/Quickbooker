@@ -1,24 +1,152 @@
 [
-    {
-      "user_id": 1,
-      "name": "Fanshawe Hotel",
-      "address": {
-        "street": "1001 Fanshawe College Blvd",
-        "city": "London",
-        "postal_code": "N5Y 5R6",
-        "province": "ON",
-        "country": "Canada"
-      },
-      "contact": {
-        "email": "info@fanshawe.com",
-        "phone": "(519) 452-4277"
-      },
-      "amenities": [
-        "Free Wi-Fi",
-        "Parking",
-        "Gym",
-        "Room service"
-      ]
-    }
-  ]
-  
+  {
+    "name": "Fanshawe Hotel",
+    "image": "/images/fanshawe-hotel.png",
+    "address": {
+      "street": "1001 Fanshawe College Blvd",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 452-4277",
+      "email": "info@fanshawe.com"
+    },
+    "amenities": ["Free Wi-Fi", "Parking", "Gym", "Room service"],
+    "max_capacity": 200
+  },
+  {
+    "name": "Fanshawe Gym",
+    "image": "/images/fanshawe-gym.png",
+    "address": {
+      "street": "1001 Fanshawe College Blvd",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 452-4277",
+      "email": "info@fanshawe.com"
+    },
+    "amenities": ["Gym equipment", "Scoreboard", "Basketball court"],
+    "max_capacity": 500
+  },
+  {
+    "name": "Fanshawe Dorm",
+    "image": "/images/fanshawe-dorm.png",
+    "address": {
+      "street": "1001 Fanshawe College Blvd",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 452-4277",
+      "email": "info@fanshawe.com"
+    },
+    "amenities": ["Single bed", "Fridge", "Microwave"],
+    "max_capacity": 100
+  },
+  {
+    "name": "Maple Leaf Banquet Hall",
+    "image": "/images/maple-leaf-hall.png",
+    "address": {
+      "street": "500 Maple St",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-1234",
+      "email": "events@mapleleafhall.com"
+    },
+    "amenities": ["Catering services", "Stage", "Dance floor"],
+    "max_capacity": 300
+  },
+  {
+    "name": "Oakwood Conference Center",
+    "image": "/images/oakwood-conference.png",
+    "address": {
+      "street": "750 Oakwood Ave",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-5678",
+      "email": "info@oakwoodconference.com"
+    },
+    "amenities": ["Projector", "Breakout rooms", "Wi-Fi"],
+    "max_capacity": 250
+  },
+  {
+    "name": "Crimson Steakhouse",
+    "image": "/images/crimson-steakhouse.png",
+    "address": {
+      "street": "45 King St",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-1111",
+      "email": "reservations@crimsonsteakhouse.com"
+    },
+    "amenities": ["Fine dining", "Bar", "Private rooms"],
+    "max_capacity": 100
+  },
+  {
+    "name": "Golden Lantern Buffet",
+    "image": "/images/golden-lantern.png",
+    "address": {
+      "street": "200 Dundas St",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-2222",
+      "email": "info@goldenlantern.com"
+    },
+    "amenities": ["All-you-can-eat", "Family-friendly", "Takeout available"],
+    "max_capacity": 150
+  },
+  {
+    "name": "Blueberry Café",
+    "image": "/images/blueberry-cafe.png",
+    "address": {
+      "street": "888 Main St",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-3333",
+      "email": "contact@blueberrycafe.com"
+    },
+    "amenities": ["Organic coffee", "Outdoor seating", "Live music"],
+    "max_capacity": 50
+  },
+  {
+    "name": "Starlight Rooftop Lounge",
+    "image": "/images/starlight-lounge.png",
+    "address": {
+      "street": "901 Highview Ave",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-4444",
+      "email": "info@starlightlounge.com"
+    },
+    "amenities": ["Cocktail bar", "Rooftop view", "DJ nights"],
+    "max_capacity": 120
+  },
+  {
+    "name": "The Iron Kettle Pub",
+    "image": "/images/iron-kettle.png",
+    "address": {
+      "street": "555 Richmond St",
+      "city": "London",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(519) 555-5555",
+      "email": "info@ironkettlepub.com"
+    },
+    "amenities": ["Craft beers", "Live sports", "Trivia nights"],
+    "max_capacity": 80
+  }
+]
