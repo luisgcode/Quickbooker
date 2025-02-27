@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="flex flex-col gap-5">
           <h1>
             Find the <span className="text-blueCompany">Perfect Venue </span>
-            for Your Event
+            for Your Events
           </h1>
           <p className="max-w-[50ch]">{t("hero.description")}</p>
         </div>
