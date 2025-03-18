@@ -1,25 +1,34 @@
 import React, { useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { fifa, cricket, clean } from "../../../components/media"; // Asegúrate de que estos sean importados correctamente
+import { fifa, cricket, clean, kpop } from "../../../components/media"; // Asegúrate de que estos sean importados correctamente
 
 const events = [
   {
     id: 1,
-    title: "Fanshawe College - FIFA Tournament!",
+    title: "Fanshawe College - FIFA 25 Tournament",
     date: "WED, APR 2, 2025, 6:00 PM EDT",
-    location: "304 Talbot St 2nd floor, London, ON",
+    location: "304 Talbot St, 2nd floor, London, ON",
     description:
-      "Join us for an epic FIFA 25 Game Night! Compete with fellow players, showcase your skills, and enjoy an evening of intense matches. Snacks and drinks will be provided. Come for the competition, stay for the fun!",
+      "Calling all FIFA fans! Join us at Fanshawe College for an exciting FIFA 25 tournament. Compete for amazing prizes, meet fellow gamers, and experience the latest in FIFA esports action. Snacks and drinks will be provided!",
     image: fifa,
   },
   {
     id: 2,
-    title: "City of London - FIFA Tournament!",
-    date: "FRI, APR 5, 2025, 7:00 PM EDT",
-    location: "200 King St, London, ON",
+    title: "City of London - Clean-Up Day",
+    date: "SAT, APR 5, 2025, 10:00 AM EDT",
+    location: "Victoria Park, 509 Clarence St, London, ON",
     description:
-      "Experience the ultimate FIFA 25 showdown! Challenge top players, win prizes, and enjoy a night filled with gaming excitement. Refreshments will be available!",
+      "Join the City of London for a day of giving back! Help clean up our parks, streets, and public spaces. All volunteers will receive free refreshments, and the first 100 participants get a free eco-friendly tote bag. Let's make London shine together!",
     image: clean,
+  },
+  {
+    id: 3,
+    title: "Behance Lounge - KPOP Night Party",
+    date: "SAT, APR 20, 2025, 8:00 PM EDT",
+    location: "Behance Lounge, 432 Richmond St, London, ON",
+    description:
+      "Step into the world of K-pop! Dance to the hottest tracks, enjoy Korean street food, and meet fellow K-pop fans. Special guest DJs and K-pop dance performances will keep the night going!",
+    image: kpop,
   },
 ];
 

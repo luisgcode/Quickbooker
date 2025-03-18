@@ -19,6 +19,7 @@ import soundtrap from "../assets/images/venues/soundtrap.jpg"
 import fifa from "../assets/images/venues/fifa.jpg"
 import clean from "../assets/images/venues/clean.png"
 import cricket from "../assets/images/venues/cricket.webp"
+import kpop from "../assets/images/venues/watching.webp"
 
 // Illustrations
 import heroIllustration from "../assets/images/illustration.svg";
@@ -26,4 +27,4 @@ import heroIllustration from "../assets/images/illustration.svg";
 // video
 import promotionVideo from "../assets/videos/promotion.mp4";
 
-export {fifa, clean,cricket, bellamere, behance, cambridge, soundtrap, quickBookerLogo, heroIllustration, promotionVideo, eventBall, eventBar, eventConference, eventWedding,eventGardens, eventMusic};
+export {kpop, fifa, clean,cricket, bellamere, behance, cambridge, soundtrap, quickBookerLogo, heroIllustration, promotionVideo, eventBall, eventBar, eventConference, eventWedding,eventGardens, eventMusic};
