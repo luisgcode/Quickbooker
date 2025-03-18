@@ -8,8 +8,8 @@ const Homepage = () => {
   return (
     <div>
       <Hero />
-      <BrowseVenueType />
-      <HowItWorks />
+      <HowItWorks />     
+       <BrowseVenueType />
     </div>
   );
 };
