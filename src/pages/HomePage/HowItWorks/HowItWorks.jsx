@@ -25,17 +25,17 @@ const HowItWorks = () => {
 
   return (
     <div className="p-sma_pad md:p-mid_pad ">
-   <h3 className=" mb-4"> 3 simple steps</h3>
+ 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {steps.map((step) => (
           <div
        
-            className=" flex flex-col items-center bg-white border border-gray-200 rounded-lg hover:border-blue-500 transition-colors cursor-pointer py-6 px-2 text-center"
+            className=" bg-white flex flex-col items-center border border-gray-200 rounded-lg hover:border-blue-500 transition-colors cursor-pointer py-6 px-2 text-center"
           >
         
-            <div className="text-2xl my-2 text-blueCompany  ">{step.icon}</div>
-            <h4 className="text-lg font-semibold mb-4">{step.title}</h4>
-            <p className="text-gray-600">{step.description}</p>
+            <div className="text-xl my-2 text-blueCompany  ">{step.icon}</div>
+            <h4 className="text-sm font-semibold mb-4">{step.title}</h4>
+            <p className="text-gray-600 text-sm">{step.description}</p>
           </div>
         ))}
       </div>
