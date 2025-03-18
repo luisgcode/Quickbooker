@@ -3,6 +3,7 @@ import Hero from "./Hero/Hero";
 
 import BrowseVenueType from "./BrowseVenueType/BrowseVenueType";
 import HowItWorks from "./HowItWorks/HowItWorks";
+import Populars from "./Populars/Populars"
 
 const Homepage = () => {
   return (
@@ -10,6 +11,7 @@ const Homepage = () => {
       <Hero />
       <HowItWorks />     
        <BrowseVenueType />
+       <Populars />
     </div>
   );
 };

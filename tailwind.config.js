@@ -18,7 +18,7 @@ export default {
       },
       spacing: {
         sma_pad: "24px 24px",
-        mid_pad: "30px 120px",
+        mid_pad: "40px 120px",
       },
     },
   },

@@ -25,7 +25,7 @@ const HowItWorks = () => {
 
   return (
     <div className="p-sma_pad md:p-mid_pad ">
-   <h2 className=" mb-4"> 3 simple steps</h2>
+   <h3 className=" mb-4"> 3 simple steps</h3>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {steps.map((step) => (
           <div

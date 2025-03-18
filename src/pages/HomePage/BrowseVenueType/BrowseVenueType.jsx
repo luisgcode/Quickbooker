@@ -13,7 +13,7 @@ const venues = [
 const BrowseVenueType = () => {
   return (
     <div className="p-sma_pad md:p-mid_pad">
-      <h2 className=" mb-4">Browse by Venue Type</h2>
+      <h3 className=" mb-4">Browse by Venue Type</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 ">
         {venues.map((venue, index) => (
           <div key={index} className="cursor-pointer hover:-translate-y-2 transition" >
