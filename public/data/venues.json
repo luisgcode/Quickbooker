@@ -1,0 +1,137 @@
+[
+  {
+    "name": "Elegant Rose Wedding Hall",
+    "image": "/images/elegant-rose-hall.png",
+    "address": {
+      "street": "123 Bridal Lane",
+      "city": "Toronto",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(416) 555-6789",
+      "email": "weddings@elegantrose.com"
+    },
+    "amenities": ["Catering services", "Dance floor", "Bridal suite"],
+    "max_capacity": 250
+  },
+  {
+    "name": "Harmony Music Studio",
+    "image": "/images/harmony-music.png",
+    "address": {
+      "street": "45 Soundwave Blvd",
+      "city": "Vancouver",
+      "province": "BC"
+    },
+    "contact": {
+      "phone": "(604) 555-1234",
+      "email": "studio@harmonymusic.com"
+    },
+    "amenities": ["Recording equipment", "Soundproof rooms", "Mixing console"],
+    "max_capacity": 30
+  },
+  {
+    "name": "Sunset Garden Venue",
+    "image": "/images/sunset-garden.png",
+    "address": {
+      "street": "789 Greenway Ave",
+      "city": "Calgary",
+      "province": "AB"
+    },
+    "contact": {
+      "phone": "(403) 555-5678",
+      "email": "info@sunsetgarden.com"
+    },
+    "amenities": ["Outdoor seating", "Floral decorations", "Gazebo"],
+    "max_capacity": 200
+  },
+  {
+    "name": "Grandview Conference Center",
+    "image": "/images/grandview-conference.png",
+    "address": {
+      "street": "100 Corporate Plaza",
+      "city": "Montreal",
+      "province": "QC"
+    },
+    "contact": {
+      "phone": "(514) 555-2345",
+      "email": "events@grandviewconference.com"
+    },
+    "amenities": ["Projector", "Wi-Fi", "Breakout rooms"],
+    "max_capacity": 300
+  },
+  {
+    "name": "La Bella Ristorante",
+    "image": "/images/la-bella-restaurant.png",
+    "address": {
+      "street": "55 Maple St",
+      "city": "Ottawa",
+      "province": "ON"
+    },
+    "contact": {
+      "phone": "(613) 555-1111",
+      "email": "reservations@labella.com"
+    },
+    "amenities": ["Fine dining", "Private dining rooms", "Wine selection"],
+    "max_capacity": 120
+  },
+  {
+    "name": "The Ivy Garden",
+    "image": "/images/ivy-garden.png",
+    "address": {
+      "street": "150 Bloomfield Dr",
+      "city": "Halifax",
+      "province": "NS"
+    },
+    "contact": {
+      "phone": "(902) 555-2222",
+      "email": "info@theivygarden.com"
+    },
+    "amenities": ["Botanical garden", "Outdoor seating", "Live music"],
+    "max_capacity": 180
+  },
+  {
+    "name": "Your Photo Studio",
+    "image": "/images/photo-studio.png",
+    "address": {
+      "street": "78 Acoustic Ave",
+      "city": "Edmonton",
+      "province": "AB"
+    },
+    "contact": {
+      "phone": "(780) 555-3333",
+      "email": "contact@melodystudio.com"
+    },
+    "amenities": ["High-end microphones", "Mixing station", "Vocal booth"],
+    "max_capacity": 25
+  },
+  {
+    "name": "The Oakwood Ballroom",
+    "image": "/images/oakwood-ballroom.png",
+    "address": {
+      "street": "320 Oakwood Blvd",
+      "city": "Winnipeg",
+      "province": "MB"
+    },
+    "contact": {
+      "phone": "(204) 555-4444",
+      "email": "events@oakwoodballroom.com"
+    },
+    "amenities": ["Luxury decor", "Grand chandelier", "Live band stage"],
+    "max_capacity": 400
+  },
+  {
+    "name": "Blue Lagoon Bistro",
+    "image": "/images/blue-lagoon.png",
+    "address": {
+      "street": "210 Coastal Ave",
+      "city": "Victoria",
+      "province": "BC"
+    },
+    "contact": {
+      "phone": "(250) 555-6666",
+      "email": "reservations@bluelagoonbistro.com"
+    },
+    "amenities": ["Seafood menu", "Beachfront view", "Cocktail bar"],
+    "max_capacity": 90
+  }
+]
