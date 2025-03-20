@@ -1,6 +1,6 @@
 import React from "react";
 import { FaHeart } from "react-icons/fa";
-import { bellamere, behance, cambridge, soundtrap } from "../../../components/media";
+import { bellamere, behance, cambridge, soundtrap } from "../../../components/media";import { Link } from "react-router-dom";
 
 const popularVenues = [
   {
@@ -50,9 +50,7 @@ const Populars = () => {
     <div className="p-sma_pad md:p-mid_pad">
       <div className="flex justify-between items-center mb-4">
         <h3>Venues guests love</h3>
-        <a href="#" className="text-blue-600 hover:underline">
-          See all venues
-        </a>
+          <Link className="text-blue-600 hover:underline" to="/userview">See all venues</Link>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {popularVenues.map((venue) => (

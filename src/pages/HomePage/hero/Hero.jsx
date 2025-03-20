@@ -1,10 +1,14 @@
-import React from "react";
-import "./Hero.css";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom"; // Importar useNavigate
+import "./Hero.css";
 
 const Hero = () => {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
+  const navigate = useNavigate(); // Hook para redireccionar
+  const [searchQuery, setSearchQuery] = useState("");
+
   const popularSearches = [
     "Wedding Venues",
     "Conference Rooms",
@@ -13,9 +17,15 @@ const Hero = () => {
     "Bars & Lounges",
   ];
 
+  const handleSearch = (event) => {
+    if (event.key === "Enter") {
+      navigate("/userview"); // Redirige al usuario
+    }
+  };
+
   return (
     <header>
-      <div className="flex gap-10 flex-col p-sma_pad md:py-[50px] md:px-[80px] md:flex-row items-center  ">
+      <div className="flex gap-10 flex-col p-sma_pad md:py-[50px] md:px-[80px] md:flex-row items-center">
         <div className="flex flex-col gap-5">
           <h1>
             Find the <span className="text-blueCompany">Perfect Venue </span>
@@ -30,8 +40,11 @@ const Hero = () => {
             <FaSearch className="absolute top-5 left-3 opacity-30" />
             <input
               type="text"
-              placeholder=" Search venues by location or type..."
+              placeholder="Search venues by location or type..."
               className="w-full px-8 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 outline-none transition-all"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch} // Detectar cuando presionan "Enter"
             />
           </div>
 
@@ -45,6 +58,7 @@ const Hero = () => {
                 <button
                   key={search}
                   className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors"
+                  onClick={() => navigate("/userview")}  
                 >
                   {search}
                 </button>
