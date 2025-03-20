@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "./Hero/Hero";
+import Hero from "./hero/Hero";
 
-import BrowseVenueType from "./BrowseVenueType/BrowseVenueType";
+import BrowseVenueType from "./browseVenueType/BrowseVenueType";
 import HowItWorks from "./howItWorks/HowItWorks";
-import Populars from "./Populars/Populars";
-import Upcomings from "./Upcomings/Upcomings";
+import Populars from "./populars/Populars";
+import Upcomings from "./upcomings/Upcomings";
 
 const Homepage = () => {
   return (
