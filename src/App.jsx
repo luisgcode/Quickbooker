@@ -4,14 +4,14 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Homepage from "./pages/homePage/Homepage";
-import UserView from "./pages/UserView/UserView";
+import UserView from "./pages/userView/UserView";
 import NotFound from "./pages/404/NotFound";
-import SignUp from "./pages/SignUp/SignUp";
-import AdminLogin from "./components/AdminLogin/AdminLogin"; // Asegúrate de importar el componente
-import AdminView from "./components/AdminView/AdminView"; // Asegúrate de importar el componente
+import SignUp from "./pages/signUp/SignUp";
+import AdminLogin from "./components/adminLogin/AdminLogin"; // Asegúrate de importar el componente
+import AdminView from "./components/adminView/AdminView"; // Asegúrate de importar el componente
 import Footer from "./components/footer/Footer";
 
-import Chatbot from "./components/ChatBot/Chatbot";
+import Chatbot from "./components/chatBot/Chatbot";
 
 function App() {
   return (
