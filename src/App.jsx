@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
-import Homepage from "./pages/HomePage/Homepage";
+import Homepage from "./pages/homePage/Homepage";
 import UserView from "./pages/UserView/UserView";
 import NotFound from "./pages/404/NotFound";
 import SignUp from "./pages/SignUp/SignUp";
@@ -16,7 +16,8 @@ import Chatbot from "./components/ChatBot/Chatbot";
 function App() {
   return (
     <div>
-      <Navbar /><Chatbot />
+      <Navbar />
+      <Chatbot />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/userview" element={<UserView />} />
