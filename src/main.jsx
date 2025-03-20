@@ -4,7 +4,6 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 import global_en from "../translations/eng/global.json";
-import global_sp from "../translations/esp/global.json";
 import global_fr from "../translations/fre/global.json";
 
 import i18next from "i18next";
@@ -16,9 +15,6 @@ i18next.init({
   resources: {
     en: {
       global: global_en,
-    },
-    sp: {
-      global: global_sp,
     },
     fr: {
       global: global_fr,

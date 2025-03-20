@@ -33,16 +33,31 @@ const events = [
 ];
 
 const EventCard = ({ event }) => {
+  const [isAttending, setIsAttending] = useState(false);
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [registrationId, setRegistrationId] = useState(null);
+  const [formData, setFormData] = useState({ name: "", email: "" });
+
+  const generateId = () => {
+    return Math.floor(1000 + Math.random() * 9000); // Genera un ID de 4 dígitos
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setRegistrationId(generateId());
+    setIsRegistered(true);
+    setTimeout(() => {
+      setIsAttending(false);
+    }, 3000);
+  };
+
   return (
     <div className="bg-white shadow-md rounded-lg p-6 flex flex-col md:flex-row gap-4 mb-6">
-      {/* Imagen del evento */}
       <img
         src={event.image}
         alt={event.title}
         className="w-full md:w-48 h-32 object-cover rounded-lg"
       />
-
-      {/* Detalles del evento */}
       <div className="flex flex-col flex-grow">
         <p className="text-blue-600 text-sm font-semibold">{event.date}</p>
         <h3 className="text-xl font-bold">{event.title}</h3>
@@ -52,12 +67,48 @@ const EventCard = ({ event }) => {
         </p>
         <p className="text-gray-700 mt-2 text-sm">{event.description}</p>
 
-        {/* Botón de asistencia */}
-        <div className="flex justify-end mt-4">
-          <button className="border border-blue-500 text-blue-600 px-4 py-1 rounded-lg hover:bg-blue-500 hover:text-white transition">
-            Attend
-          </button>
-        </div>
+        {isAttending ? (
+          isRegistered ? (
+            <p className="text-green-600 font-semibold mt-4">
+              You have successfully registered!<br />
+              Your Identification ID is: <span className="font-bold">{registrationId}</span>
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                required
+                className="border p-2 rounded-lg text-gray-700"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                required
+                className="border p-2 rounded-lg text-gray-700"
+              />
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+              >
+                Submit
+              </button>
+            </form>
+          )
+        ) : (
+          <div className="flex justify-end mt-4">
+            <button
+              onClick={() => setIsAttending(true)}
+              className="border border-blue-500 text-blue-600 px-4 py-1 rounded-lg hover:bg-blue-500 hover:text-white transition"
+            >
+              Attend
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -69,8 +120,6 @@ const Upcomings = () => {
   return (
     <div className="p-sma_pad md:p-mid_pad">
       <h3 className="">Public Events</h3>
-      
-      {/* Tabs */}
       <div className="flex gap-6 border-b mb-6">
         <button
           className={`pb-2 ${
@@ -93,8 +142,6 @@ const Upcomings = () => {
           Past
         </button>
       </div>
-
-      {/* Lista de eventos con espacio entre ellos */}
       <div className="flex flex-col gap-2">
         {selectedTab === "upcoming" && events.length > 0 ? (
           events.map((event) => <EventCard key={event.id} event={event} />)

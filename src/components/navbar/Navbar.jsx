@@ -10,15 +10,13 @@ import "./navbar.css";
 
 const Navbar = () => {
   const [t, i18n] = useTranslation("global");
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
-  //   Handle language change
   function handleLanguage(lang) {
     i18n.changeLanguage(lang);
+    setCurrentLanguage(lang);
   }
-
-  const [currentLanguage, setCurrentLanguage] = React.useState(i18n.language);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,11 +33,7 @@ const Navbar = () => {
         <div className="p-sma_pad navigation flex items-center justify-between md:p-mid_pad">
           <div className="logo">
             <Link to="/">
-              <img
-                className="max-w-40"
-                src={quickBookerLogo}
-                alt="Company's logo"
-              />
+              <img className="max-w-40" src={quickBookerLogo} alt="Company's logo" />
             </Link>
           </div>
           <ul className="hidden md:flex gap-6 items-center">
@@ -50,32 +44,15 @@ const Navbar = () => {
               {currentLanguage === "en" ? (
                 <button
                   className="flex items-center gap-1 text-blueCompany min-w-[45px]"
-                  onClick={() => {
-                    handleLanguage("fr");
-                    setCurrentLanguage("fr");
-                  }}
+                  onClick={() => handleLanguage("fr")}
                 >
                   <MdLanguage />
                   FRA
                 </button>
-              ) : currentLanguage === "fr" ? (
-                <button
-                  className="flex items-center gap-1   text-blueCompany min-w-[45px]"
-                  onClick={() => {
-                    handleLanguage("sp");
-                    setCurrentLanguage("sp");
-                  }}
-                >
-                  <MdLanguage />
-                  SPA
-                </button>
               ) : (
                 <button
-                  className="flex items-center gap-1   text-blueCompany min-w-[45px]"
-                  onClick={() => {
-                    handleLanguage("en");
-                    setCurrentLanguage("en");
-                  }}
+                  className="flex items-center gap-1 text-blueCompany min-w-[45px]"
+                  onClick={() => handleLanguage("en")}
                 >
                   <MdLanguage />
                   ENG
