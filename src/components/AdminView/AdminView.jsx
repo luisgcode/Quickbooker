@@ -22,7 +22,7 @@ const AdminView = () => {
   });
 
   useEffect(() => {
-    fetch("/data/venues.json")
+    fetch("/data/adminvenues.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
