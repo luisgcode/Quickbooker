@@ -207,13 +207,27 @@ const AdminView = () => {
   };
 
   return (
-    <main className="p-5">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Welcome to the Admin View</h1>
+    <main className="container mx-auto px-4 py-8">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold text-gray-900">
+          Welcome to the Admin View
+        </h1>
         <button
-          className="bg-green-500 text-white px-4 py-2 rounded"
+          className="ml-auto py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition flex items-center"
           onClick={toggleModal}
         >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+              clipRule="evenodd"
+            />
+          </svg>
           Add Venue
         </button>
       </div>
@@ -221,78 +235,93 @@ const AdminView = () => {
       {venues.length === 0 ? (
         <p>No venues found.</p>
       ) : (
-        <div className="grid gap-4">
+        <div className="space-y-6">
           {venues.map((venue, index) => (
-            <div key={index} className="border p-4 rounded-lg shadow">
+            <div
+              key={index}
+              className="flex items-center border-b pb-4 hover:shadow-lg transition-shadow duration-300 rounded-lg p-4"
+            >
               {editingIndex === index ? (
-                <>
+                <div className="w-full">
                   <input
                     className="w-full p-2 mb-2 border rounded"
                     type="text"
                     value={editedVenue.name}
                     onChange={(e) => handleChange(e, "name")}
                   />
-                  <div className="mb-2">
-                    <strong>Address:</strong>
-                    <input
-                      className="w-full p-1 border rounded mt-1"
-                      type="text"
-                      value={editedVenue.address.street}
-                      onChange={(e) => handleAddressChange(e, "street")}
-                      placeholder="Street"
-                    />
-                    <input
-                      className="w-full p-1 border rounded mt-1"
-                      type="text"
-                      value={editedVenue.address.city}
-                      onChange={(e) => handleAddressChange(e, "city")}
-                      placeholder="City"
-                    />
-                    <input
-                      className="w-full p-1 border rounded mt-1"
-                      type="text"
-                      value={editedVenue.address.postal_code}
-                      onChange={(e) => handleAddressChange(e, "postal_code")}
-                      placeholder="Postal Code"
-                    />
-                    <input
-                      className="w-full p-1 border rounded mt-1"
-                      type="text"
-                      value={editedVenue.address.province}
-                      onChange={(e) => handleAddressChange(e, "province")}
-                      placeholder="Province"
-                    />
-                    <input
-                      className="w-full p-1 border rounded mt-1"
-                      type="text"
-                      value={editedVenue.address.country}
-                      onChange={(e) => handleAddressChange(e, "country")}
-                      placeholder="Country"
-                    />
-                    <div className="mb-2">
-                      <strong>Contact:</strong>
+                  <div className="space-y-4">
+                    <div>
+                      <strong>Address:</strong>
+                      <div className="grid grid-cols-2 gap-2 mt-2">
+                        <input
+                          className="w-full p-1 border rounded"
+                          type="text"
+                          value={editedVenue.address.street}
+                          onChange={(e) => handleAddressChange(e, "street")}
+                          placeholder="Street"
+                        />
+                        <input
+                          className="w-full p-1 border rounded"
+                          type="text"
+                          value={editedVenue.address.city}
+                          onChange={(e) => handleAddressChange(e, "city")}
+                          placeholder="City"
+                        />
+                        <input
+                          className="w-full p-1 border rounded"
+                          type="text"
+                          value={editedVenue.address.postal_code}
+                          onChange={(e) =>
+                            handleAddressChange(e, "postal_code")
+                          }
+                          placeholder="Postal Code"
+                        />
+                        <input
+                          className="w-full p-1 border rounded"
+                          type="text"
+                          value={editedVenue.address.province}
+                          onChange={(e) => handleAddressChange(e, "province")}
+                          placeholder="Province"
+                        />
+                      </div>
                       <input
-                        className="w-full p-1 border rounded mt-1"
-                        type="email"
-                        value={editedVenue.contact.email}
-                        onChange={(e) => handleContactChange(e, "email")}
-                        placeholder="Email"
-                      />
-                      <input
-                        className="w-full p-1 border rounded mt-1"
+                        className="w-full p-1 border rounded mt-2"
                         type="text"
-                        value={editedVenue.contact.phone}
-                        onChange={(e) => handleContactChange(e, "phone")}
-                        placeholder="Phone"
+                        value={editedVenue.address.country}
+                        onChange={(e) => handleAddressChange(e, "country")}
+                        placeholder="Country"
                       />
                     </div>
 
-                    <div className="mb-2">
+                    <div>
+                      <strong>Contact:</strong>
+                      <div className="grid grid-cols-2 gap-2 mt-2">
+                        <input
+                          className="w-full p-1 border rounded"
+                          type="email"
+                          value={editedVenue.contact.email}
+                          onChange={(e) => handleContactChange(e, "email")}
+                          placeholder="Email"
+                        />
+                        <input
+                          className="w-full p-1 border rounded"
+                          type="text"
+                          value={editedVenue.contact.phone}
+                          onChange={(e) => handleContactChange(e, "phone")}
+                          placeholder="Phone"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
                       <strong>Amenities:</strong>
                       {editedVenue.amenities.map((amenity, i) => (
-                        <div key={i} className="flex items-center mt-1">
+                        <div
+                          key={i}
+                          className="flex items-center mt-2 space-x-2"
+                        >
                           <input
-                            className="w-full p-1 border rounded"
+                            className="flex-1 p-1 border rounded"
                             type="text"
                             value={amenity}
                             onChange={(e) =>
@@ -301,7 +330,7 @@ const AdminView = () => {
                             placeholder="Amenity"
                           />
                           <button
-                            className="bg-red-500 text-white px-2 ml-2 rounded"
+                            className="ml-auto py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
                             onClick={() => handleRemoveAmenity(i)}
                           >
                             -
@@ -309,60 +338,104 @@ const AdminView = () => {
                         </div>
                       ))}
                       <button
-                        className="bg-blue-500 text-white px-3 py-1 rounded mt-2"
+                        className="mt-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
                         onClick={handleAddAmenity}
                       >
                         + Add Amenity
                       </button>
                     </div>
                   </div>
-                  <button
-                    className="bg-green-500 text-white px-3 py-1 rounded mr-2"
-                    onClick={handleSave}
-                  >
-                    Update
-                  </button>
-                  <button
-                    className="bg-gray-500 text-white px-3 py-1 rounded"
-                    onClick={handleCancel}
-                  >
-                    Cancel
-                  </button>
-                </>
-              ) : (
-                <>
-                  <h2 className="text-xl font-semibold">{venue.name}</h2>
-                  <p>
-                    <strong>Address:</strong> {venue.address.street},{" "}
-                    {venue.address.city}, {venue.address.postal_code},{" "}
-                    {venue.address.province}, {venue.address.country}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {venue.contact.email}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {venue.contact.phone}
-                  </p>
-                  {venue.amenities && venue.amenities.length > 0 && (
-                    <p>
-                      <strong>Amenities:</strong> {venue.amenities.join(", ")}
-                    </p>
-                  )}
-                  <div className="mt-3">
+
+                  <div className="mt-4 flex space-x-2">
                     <button
-                      className="bg-blue-500 text-white px-3 py-1 rounded mr-2"
+                      className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md transition"
+                      onClick={handleSave}
+                    >
+                      Update
+                    </button>
+                    <button
+                      className="py-2 px-4 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-md transition"
+                      onClick={handleCancel}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex-1">
+                  <h2 className="font-bold mb-3">{venue.name}</h2>
+                  <div className="flex items-center text-gray-600 mb-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p>
+                      {venue.address.street}, {venue.address.city},{" "}
+                      {venue.address.province}
+                    </p>
+                  </div>
+                  <div className="flex items-center text-gray-700 text-sm mb-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    <p>{venue.contact.email}</p>
+                    <span className="mx-2">|</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
+                    <p>{venue.contact.phone}</p>
+                  </div>
+                  {venue.amenities && venue.amenities.length > 0 && (
+                    <div className="flex items-center text-sm text-gray-600">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <p>{venue.amenities.slice(0, 3).join(", ")}...</p>
+                    </div>
+                  )}
+                  <div className="mt-3 flex space-x-2">
+                    <button
+                      className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
                       onClick={() => handleEdit(index)}
                     >
                       Edit
                     </button>
                     <button
-                      className="bg-red-500 text-white px-3 py-1 rounded"
+                      className="py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
                       onClick={() => handleDelete(index)}
                     >
                       Delete
                     </button>
                   </div>
-                </>
+                </div>
               )}
             </div>
           ))}
@@ -371,113 +444,155 @@ const AdminView = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-5 rounded-lg shadow-lg w-96">
-            <h2 className="text-xl font-semibold mb-2">Add New Venue</h2>
-            <input
-              className="w-full p-2 mb-2 border rounded"
-              type="text"
-              placeholder="Venue Name"
-              value={newVenue.name}
-              onChange={(e) => handleNewVenueChange(e, "name")}
-            />
-
-            <div className="mb-2">
-              <strong>Address:</strong>
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="text"
-                placeholder="Street"
-                value={newVenue.address.street}
-                onChange={(e) => handleNewVenueChange(e, "street", true)}
-              />
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="text"
-                placeholder="City"
-                value={newVenue.address.city}
-                onChange={(e) => handleNewVenueChange(e, "city", true)}
-              />
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="text"
-                placeholder="Postal Code"
-                value={newVenue.address.postal_code}
-                onChange={(e) => handleNewVenueChange(e, "postal_code", true)}
-              />
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="text"
-                placeholder="Province"
-                value={newVenue.address.province}
-                onChange={(e) => handleNewVenueChange(e, "province", true)}
-              />
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="text"
-                placeholder="Country"
-                value={newVenue.address.country}
-                onChange={(e) => handleNewVenueChange(e, "country", true)}
-              />
-            </div>
-
-            <div className="mb-2">
-              <strong>Contact:</strong>
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="email"
-                placeholder="Email"
-                value={newVenue.contact.email}
-                onChange={(e) => handleNewContactChange(e, "email")}
-              />
-              <input
-                className="w-full p-1 border rounded mt-1"
-                type="text"
-                placeholder="Phone"
-                value={newVenue.contact.phone}
-                onChange={(e) => handleNewContactChange(e, "phone")}
-              />
-            </div>
-
-            <div className="mb-2">
-              <strong>Amenities:</strong>
-              {newVenue.amenities.map((amenity, i) => (
-                <div key={i} className="flex items-center mt-1">
-                  <input
-                    className="w-full p-1 border rounded"
-                    type="text"
-                    value={amenity}
-                    onChange={(e) => handleNewAmenityChange(i, e.target.value)}
-                    placeholder="Amenity"
-                  />
-                  <button
-                    className="bg-red-500 text-white px-2 ml-2 rounded"
-                    onClick={() => handleRemoveNewAmenity(i)}
-                  >
-                    -
-                  </button>
-                </div>
-              ))}
-              <button
-                className="bg-blue-500 text-white px-3 py-1 rounded mt-2"
-                onClick={handleAddNewAmenity}
-              >
-                + Add Amenity
-              </button>
-            </div>
-
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg p-6 w-full max-w-4xl mx-4 relative">
             <button
-              className="bg-green-500 text-white px-3 py-1 rounded mr-2"
-              onClick={handleAddVenue}
-            >
-              Add
-            </button>
-            <button
-              className="bg-gray-500 text-white px-3 py-1 rounded"
               onClick={toggleModal}
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
             >
-              Cancel
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
+
+            <h2 className="text-xl font-bold mb-4">Add New Venue</h2>
+            <form>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <input
+                    className="w-full p-2 border rounded"
+                    type="text"
+                    placeholder="Venue Name"
+                    value={newVenue.name}
+                    onChange={(e) => handleNewVenueChange(e, "name")}
+                  />
+                  <div>
+                    <strong>Address:</strong>
+                    <div className="grid grid-cols-2 gap-2 mt-2">
+                      <input
+                        className="w-full p-1 border rounded"
+                        type="text"
+                        placeholder="Street"
+                        value={newVenue.address.street}
+                        onChange={(e) =>
+                          handleNewVenueChange(e, "street", true)
+                        }
+                      />
+                      <input
+                        className="w-full p-1 border rounded"
+                        type="text"
+                        placeholder="City"
+                        value={newVenue.address.city}
+                        onChange={(e) => handleNewVenueChange(e, "city", true)}
+                      />
+                      <input
+                        className="w-full p-1 border rounded"
+                        type="text"
+                        placeholder="Postal Code"
+                        value={newVenue.address.postal_code}
+                        onChange={(e) =>
+                          handleNewVenueChange(e, "postal_code", true)
+                        }
+                      />
+                      <input
+                        className="w-full p-1 border rounded"
+                        type="text"
+                        placeholder="Province"
+                        value={newVenue.address.province}
+                        onChange={(e) =>
+                          handleNewVenueChange(e, "province", true)
+                        }
+                      />
+                    </div>
+                    <input
+                      className="w-full p-1 border rounded mt-2"
+                      type="text"
+                      placeholder="Country"
+                      value={newVenue.address.country}
+                      onChange={(e) => handleNewVenueChange(e, "country", true)}
+                    />
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div>
+                    <strong>Contact:</strong>
+                    <div className="grid grid-cols-2 gap-2 mt-2">
+                      <input
+                        className="w-full p-1 border rounded"
+                        type="email"
+                        placeholder="Email"
+                        value={newVenue.contact.email}
+                        onChange={(e) => handleNewContactChange(e, "email")}
+                      />
+                      <input
+                        className="w-full p-1 border rounded"
+                        type="text"
+                        placeholder="Phone"
+                        value={newVenue.contact.phone}
+                        onChange={(e) => handleNewContactChange(e, "phone")}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <strong>Amenities:</strong>
+                    {newVenue.amenities.map((amenity, i) => (
+                      <div key={i} className="flex items-center mt-2 space-x-2">
+                        <input
+                          className="flex-1 p-1 border rounded"
+                          type="text"
+                          value={amenity}
+                          onChange={(e) =>
+                            handleNewAmenityChange(i, e.target.value)
+                          }
+                          placeholder="Amenity"
+                        />
+                        <button
+                          type="button"
+                          className="ml-auto py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
+                          onClick={() => handleRemoveNewAmenity(i)}
+                        >
+                          -
+                        </button>
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      className="mt-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
+                      onClick={handleAddNewAmenity}
+                    >
+                      + Add Amenity
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 flex space-x-2">
+                <button
+                  type="button"
+                  className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md transition"
+                  onClick={handleAddVenue}
+                >
+                  Add
+                </button>
+                <button
+                  type="button"
+                  className="py-2 px-4 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-md transition"
+                  onClick={toggleModal}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

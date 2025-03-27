@@ -1,14 +1,14 @@
 [
   {
-    "name": "ADMIN Elegant Rose Wedding Hall",
+    "name": "Example of creation for admins",
     "image": "/images/elegant-rose-hall.png",
     "address": {
-      "street": "123 Bridal Lane",
+      "street": "Your Address",
       "city": "Toronto",
       "province": "ON"
     },
     "contact": {
-      "phone": "(416) 555-6789",
+      "phone": "Your contact Phone, users will see ",
       "email": "weddings@elegantrose.com"
     },
     "amenities": ["Catering services", "Dance floor", "Bridal suite"],
