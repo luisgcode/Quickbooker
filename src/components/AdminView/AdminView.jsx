@@ -22,6 +22,7 @@ const AdminView = () => {
       phone: "",
     },
     amenities: [],
+    image: "",
   });
 
   useEffect(() => {
@@ -33,29 +34,33 @@ const AdminView = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Fetched data:", data);
         setVenues(data);
       })
       .catch((error) => console.error("Error fetching venues:", error));
   }, []);
 
-  // Handle Delete
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setNewVenue((prev) => ({ ...prev, image: reader.result }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleDelete = (index) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this venue?"
-    );
-    if (confirmDelete) {
+    if (window.confirm("Are you sure you want to delete this venue?")) {
       setVenues(venues.filter((_, i) => i !== index));
     }
   };
 
-  // Handle Edit
   const handleEdit = (index) => {
     setEditingIndex(index);
     setEditedVenue({ ...venues[index] });
   };
 
-  // Handle Cancel
   const handleCancel = () => {
     if (window.confirm("Are you sure you want to cancel editing?")) {
       setEditingIndex(null);
@@ -63,7 +68,6 @@ const AdminView = () => {
     }
   };
 
-  // Handle Input Change
   const handleChange = (e, field) => {
     setEditedVenue({
       ...editedVenue,
@@ -71,7 +75,6 @@ const AdminView = () => {
     });
   };
 
-  // Handle Address Change
   const handleAddressChange = (e, field) => {
     setEditedVenue({
       ...editedVenue,
@@ -82,7 +85,6 @@ const AdminView = () => {
     });
   };
 
-  // Handle Save
   const handleSave = () => {
     if (!editedVenue.name.trim()) {
       alert("Venue name is required!");
@@ -98,7 +100,6 @@ const AdminView = () => {
       alert("Address fields cannot be empty!");
       return;
     }
-
     if (
       !editedVenue.contact.email.trim() ||
       !editedVenue.contact.phone.trim()
@@ -106,20 +107,17 @@ const AdminView = () => {
       alert("Contact fields cannot be empty!");
       return;
     }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(editedVenue.contact.email)) {
       alert("Invalid email format!");
       return;
     }
-
     const phoneRegex =
       /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
     if (!phoneRegex.test(editedVenue.contact.phone)) {
       alert("Invalid phone number format!");
       return;
     }
-
     if (window.confirm("Do you want to save changes?")) {
       const updatedVenues = [...venues];
       updatedVenues[editingIndex] = editedVenue;
@@ -129,7 +127,6 @@ const AdminView = () => {
     }
   };
 
-  // Handle Open/Close Modal
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
     setNewVenue({
@@ -143,10 +140,10 @@ const AdminView = () => {
       },
       contact: { email: "", phone: "" },
       amenities: [],
+      image: "",
     });
   };
 
-  // Handle Adding New Venue
   const handleAddVenue = () => {
     if (!newVenue.name.trim()) {
       alert("Venue name is required!");
@@ -162,30 +159,25 @@ const AdminView = () => {
       alert("Address fields cannot be empty!");
       return;
     }
-
     if (!newVenue.contact.email.trim() || !newVenue.contact.phone.trim()) {
       alert("Contact fields cannot be empty!");
       return;
     }
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(newVenue.contact.email)) {
       alert("Invalid email format!");
       return;
     }
-
     const phoneRegex =
       /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
     if (!phoneRegex.test(newVenue.contact.phone)) {
       alert("Invalid phone number format!");
       return;
     }
-
     setVenues([...venues, newVenue]);
     toggleModal();
   };
 
-  // Handle Amenity Change
   const handleAmenityChange = (index, value) => {
     const updatedAmenities = [...editedVenue.amenities];
     updatedAmenities[index] = value;
@@ -195,7 +187,6 @@ const AdminView = () => {
     });
   };
 
-  // Handle Adding amenity
   const handleAddAmenity = () => {
     setEditedVenue({
       ...editedVenue,
@@ -203,7 +194,6 @@ const AdminView = () => {
     });
   };
 
-  // handle removing amenity
   const handleRemoveAmenity = (index) => {
     setEditedVenue({
       ...editedVenue,
@@ -211,7 +201,6 @@ const AdminView = () => {
     });
   };
 
-  // handle contact change
   const handleContactChange = (e, field) => {
     setEditedVenue({
       ...editedVenue,
@@ -222,7 +211,6 @@ const AdminView = () => {
     });
   };
 
-  // Handle new Amenity Change
   const handleNewAmenityChange = (index, value) => {
     const updatedAmenities = [...newVenue.amenities];
     updatedAmenities[index] = value;
@@ -232,7 +220,6 @@ const AdminView = () => {
     });
   };
 
-  // Handle New Venue Input Change
   const handleNewVenueChange = (e, field, isAddress = false) => {
     if (isAddress) {
       setNewVenue({
@@ -247,7 +234,6 @@ const AdminView = () => {
     }
   };
 
-  // handle addung new amenity
   const handleAddNewAmenity = () => {
     setNewVenue({
       ...newVenue,
@@ -255,7 +241,6 @@ const AdminView = () => {
     });
   };
 
-  // handle new contact info change
   const handleNewContactChange = (e, field) => {
     setNewVenue({
       ...newVenue,
@@ -266,7 +251,6 @@ const AdminView = () => {
     });
   };
 
-  // handle removing a new amenity
   const handleRemoveNewAmenity = (index) => {
     setNewVenue({
       ...newVenue,
@@ -527,7 +511,7 @@ const AdminView = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-[#212121] rounded-lg p-6 w-full max-w-4xl mx-4 relative">
             <button
               onClick={toggleModal}
@@ -555,6 +539,7 @@ const AdminView = () => {
 
             <form>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Columna izquierda */}
                 <div className="space-y-4">
                   <input
                     className="w-full p-2 border rounded"
@@ -563,6 +548,28 @@ const AdminView = () => {
                     value={newVenue.name}
                     onChange={(e) => handleNewVenueChange(e, "name")}
                   />
+
+                  {/* Imagen */}
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-[#e8e8e8]">
+                      Upload Venue Image
+                    </label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="w-full p-1 border rounded dark:bg-[#212121] dark:text-[#e8e8e8]"
+                    />
+                    {newVenue.image && (
+                      <img
+                        src={newVenue.image}
+                        alt="Venue Preview"
+                        className="mt-2 w-full h-40 object-cover rounded border"
+                      />
+                    )}
+                  </div>
+
+                  {/* Dirección */}
                   <div>
                     <strong className="dark:text-[#e8e8e8]">
                       {t("adminView.address")}:
@@ -612,10 +619,14 @@ const AdminView = () => {
                     />
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div>
-                    <strong>{t("adminView.contact")}:</strong>
 
+                {/* Columna derecha */}
+                <div className="space-y-4">
+                  {/* Contacto */}
+                  <div>
+                    <strong className="dark:text-[#e8e8e8]">
+                      {t("adminView.contact")}:
+                    </strong>
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <input
                         className="w-full p-1 border rounded"
@@ -633,8 +644,12 @@ const AdminView = () => {
                       />
                     </div>
                   </div>
+
+                  {/* Amenities */}
                   <div>
-                    <strong>{t("adminView.amenities")}:</strong>
+                    <strong className="dark:text-[#e8e8e8]">
+                      {t("adminView.amenities")}:
+                    </strong>
                     {newVenue.amenities.map((amenity, i) => (
                       <div key={i} className="flex items-center mt-2 space-x-2">
                         <input
@@ -665,6 +680,8 @@ const AdminView = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Botones finales */}
               <div className="mt-6 flex space-x-2">
                 <button
                   type="button"

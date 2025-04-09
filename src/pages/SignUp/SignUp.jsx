@@ -32,9 +32,9 @@ const SignUp = () => {
   };
 
   return (
-    <section>
+    <section className="dark:bg-[#212121] dark:text-[#e8e8e8]">
       <div className="flex flex-col items-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-[#e8e8e8] mb-8">
           {t("signUp.title")}
         </h2>
 
@@ -44,14 +44,14 @@ const SignUp = () => {
             onClick={() => setSelectedForm("client")}
             className={`flex-1 p-4 rounded-lg border-2 transition-all duration-200 ${
               selectedForm === "client"
-                ? "border-blue-600 bg-blue-50"
-                : "border-gray-200 hover:border-blue-400"
+                ? "border-blue-600 bg-blue-50 dark:bg-blue-900/10"
+                : "border-gray-200 dark:border-[#444] hover:border-blue-400"
             }`}
           >
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-lg font-semibold dark:text-[#e8e8e8]">
               {t("signUp.clientOptionTitle")}
             </h3>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600 dark:text-[#b0b0b0] mt-1">
               {t("signUp.clientOptionDescription")}
             </p>
           </button>
@@ -60,14 +60,14 @@ const SignUp = () => {
             onClick={() => setSelectedForm("business")}
             className={`flex-1 p-4 rounded-lg border-2 transition-all duration-200 ${
               selectedForm === "business"
-                ? "border-blue-600 bg-blue-50"
-                : "border-gray-200 hover:border-blue-400"
+                ? "border-blue-600 bg-blue-50 dark:bg-blue-900/10"
+                : "border-gray-200 dark:border-[#444] hover:border-blue-400"
             }`}
           >
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-lg font-semibold dark:text-[#e8e8e8]">
               {t("signUp.ownerOptionTitle")}
             </h3>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600 dark:text-[#b0b0b0] mt-1">
               {t("signUp.ownerOptionDescription")}
             </p>
           </button>
@@ -76,20 +76,20 @@ const SignUp = () => {
         {/* Forms */}
         <div className="w-full max-w-md">
           {selectedForm === "client" && (
-            <div className="bg-white rounded-lg shadow-sm p-6 animate-fadeIn">
+            <div className="bg-white dark:bg-[#212121] rounded-lg shadow-sm p-6 animate-fadeIn">
               <form className="space-y-4" onSubmit={handleSignUp}>
                 {/* Full Name */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.fullNameLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <MdPerson className="h-5 w-5 text-gray-400" />
+                      <MdPerson className="h-5 w-5 text-gray-400 dark:text-[#b0b0b0]" />
                     </div>
                     <input
                       type="text"
-                      className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
+                      className="pl-10 w-full rounded-md border border-gray-300 dark:border-[#444] py-2 px-3 bg-white dark:bg-[#212121] text-gray-900 dark:text-[#e8e8e8] placeholder-gray-400 dark:placeholder-[#b0b0b0] focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
                       placeholder={t("signUp.form.fullNamePlaceholder")}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
@@ -99,16 +99,16 @@ const SignUp = () => {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.emailLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <MdEmail className="h-5 w-5 text-gray-400" />
+                      <MdEmail className="h-5 w-5 text-gray-400 dark:text-[#b0b0b0]" />
                     </div>
                     <input
                       type="email"
-                      className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
+                      className="pl-10 w-full rounded-md border border-gray-300 dark:border-[#444] py-2 px-3 bg-white dark:bg-[#212121] text-gray-900 dark:text-[#e8e8e8] placeholder-gray-400 dark:placeholder-[#b0b0b0] focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
                       placeholder={t("signUp.form.emailPlaceholder")}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -118,16 +118,16 @@ const SignUp = () => {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.passwordLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <MdLock className="h-5 w-5 text-gray-400" />
+                      <MdLock className="h-5 w-5 text-gray-400 dark:text-[#b0b0b0]" />
                     </div>
                     <input
                       type="password"
-                      className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
+                      className="pl-10 w-full rounded-md border border-gray-300 dark:border-[#444] py-2 px-3 bg-white dark:bg-[#212121] text-gray-900 dark:text-[#e8e8e8] placeholder-gray-400 dark:placeholder-[#b0b0b0] focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
                       placeholder={t("signUp.form.passwordPlaceholder")}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -137,16 +137,16 @@ const SignUp = () => {
 
                 {/* City */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.cityLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <MdLocationCity className="h-5 w-5 text-gray-400" />
+                      <MdLocationCity className="h-5 w-5 text-gray-400 dark:text-[#b0b0b0]" />
                     </div>
                     <input
                       type="text"
-                      className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
+                      className="pl-10 w-full rounded-md border border-gray-300 dark:border-[#444] py-2 px-3 bg-white dark:bg-[#212121] text-gray-900 dark:text-[#e8e8e8] placeholder-gray-400 dark:placeholder-[#b0b0b0] focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
                       placeholder={t("signUp.form.cityPlaceholder")}
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
@@ -165,8 +165,8 @@ const SignUp = () => {
           )}
 
           {selectedForm === "business" && (
-            <div className="bg-white rounded-lg shadow-sm p-6 animate-fadeIn">
-              <p className="text-lg text-gray-700">
+            <div className="bg-white dark:bg-[#212121] rounded-lg shadow-sm p-6 animate-fadeIn">
+              <p className="text-lg text-gray-700 dark:text-[#b0b0b0]">
                 {t("signUp.businessMessage")}
               </p>
             </div>
