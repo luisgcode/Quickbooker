@@ -3,7 +3,21 @@
     "news": "🎉🎉Today's the day! Join the grand opening celebration at Carlo's Baker Toasted for an unforgettable experience. 🎉🎉"
   },
   "hero": {
-    "description": "Discover and book extraordinary venues for any occasion. From intimate gatherings to grand celebrations."
+    "title": {
+      "part1": "Find the ",
+      "highlight": "Perfect Venue",
+      "part2": " for Your Events"
+    },
+    "description": "Discover and book extraordinary venues for any occasion. From intimate gatherings to grand celebrations.",
+    "searchPlaceholder": "Search venues by location or type...",
+    "popularTitle": "Popular searches",
+    "popularSearches": {
+      "wedding": "Wedding Venues",
+      "conference": "Conference Rooms",
+      "garden": "Outdoor Gardens",
+      "dining": "Private Dining",
+      "bars": "Bars & Lounges"
+    }
   },
   "signUp": {
     "title": "Choose Your Account Type",
@@ -11,5 +25,44 @@
     "clientOptionDescription": "Find and book perfect venues for your events.",
     "ownerOptionTitle": "Sign Up as a Business Owner",
     "ownerOptionDescription": "List your venue and start accepting bookings."
+  },
+  "browseVenue": {
+    "title": "Browse by Venue Type",
+    "available": "{{count}} available now",
+    "types": {
+      "ball": "Ball Rooms",
+      "music": "Music Studios",
+      "conference": "Conferences",
+      "wedding": "Wedding Venues",
+      "bars": "Bars",
+      "gardens": "Gardens"
+    }
+  },
+  "howItWorks": {
+    "steps": {
+      "browse": {
+        "title": "Browse Venues",
+        "description": "Explore a variety of venues tailored to your needs."
+      },
+      "availability": {
+        "title": "Check Availability",
+        "description": "View real-time availability, configuration, and pricing."
+      },
+      "book": {
+        "title": "Book & Confirm",
+        "description": "Reserve your venue instantly and receive confirmation."
+      }
+    }
+  },
+  "populars": {
+    "title": "Venues guests love",
+    "seeAll": "See all venues",
+    "startingFrom": "Starting from",
+    "currency": "CAD",
+    "reviewText": {
+      "excellent": "Excellent",
+      "wonderful": "Wonderful",
+      "superb": "Superb"
+    }
   }
 }

@@ -3,7 +3,21 @@
     "news": "🎉🎉Aujourd'hui c'est le jour! Rejoignez la grande célébration d'ouverture chez Carlo's Baker Toasted pour une expérience inoubliable. 🎉🎉"
   },
   "hero": {
-    "description": "Découvrez et réservez des lieux extraordinaires pour toutes les occasions. Des rassemblements intimes aux grandes célébrations."
+    "title": {
+      "part1": "Trouvez le ",
+      "highlight": "lieu parfait",
+      "part2": " pour vos événements"
+    },
+    "description": "Découvrez et réservez des lieux extraordinaires pour toutes les occasions. Des rassemblements intimes aux grandes célébrations.",
+    "searchPlaceholder": "Recherchez des lieux par emplacement ou type...",
+    "popularTitle": "Recherches populaires",
+    "popularSearches": {
+      "wedding": "Lieux de mariage",
+      "conference": "Salles de conférence",
+      "garden": "Jardins extérieurs",
+      "dining": "Salles à manger privées",
+      "bars": "Bars et salons"
+    }
   },
   "signUp": {
     "title": "Choisissez votre type de compte",
@@ -11,5 +25,44 @@
     "clientOptionDescription": "Trouvez et réservez des lieux parfaits pour vos événements.",
     "ownerOptionTitle": "Inscrivez-vous en tant que propriétaire d'entreprise",
     "ownerOptionDescription": "Inscrivez votre lieu et commencez à accepter des réservations."
+  },
+  "browseVenue": {
+    "title": "Parcourir par type de lieu",
+    "available": "{{count}} disponibles maintenant",
+    "types": {
+      "ball": "Salles de bal",
+      "music": "Studios de musique",
+      "conference": "Conférences",
+      "wedding": "Lieux de mariage",
+      "bars": "Bars",
+      "gardens": "Jardins"
+    }
+  },
+  "howItWorks": {
+    "steps": {
+      "browse": {
+        "title": "Parcourir les lieux",
+        "description": "Explorez une variété de lieux adaptés à vos besoins."
+      },
+      "availability": {
+        "title": "Vérifier la disponibilité",
+        "description": "Consultez la disponibilité en temps réel, la configuration et les tarifs."
+      },
+      "book": {
+        "title": "Réserver et confirmer",
+        "description": "Réservez instantanément votre lieu et recevez une confirmation."
+      }
+    }
+  },
+  "populars": {
+    "title": "Lieux appréciés par les invités",
+    "seeAll": "Voir tous les lieux",
+    "startingFrom": "À partir de",
+    "currency": "CAD",
+    "reviewText": {
+      "excellent": "Excellent",
+      "wonderful": "Merveilleux",
+      "superb": "Superbe"
+    }
   }
 }
