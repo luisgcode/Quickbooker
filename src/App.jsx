@@ -15,6 +15,7 @@ import Chatbot from "./components/chatBot/Chatbot";
 
 function App() {
   return (
+    // main rule for plain text toggle dark mode
     <div className="dark:bg-darkBG dark:text-darkText">
       <Navbar />
       <Chatbot />

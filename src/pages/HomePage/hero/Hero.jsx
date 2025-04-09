@@ -44,7 +44,7 @@ const Hero = () => {
             <input
               type="text"
               placeholder={t("hero.searchPlaceholder")}
-              className="w-full px-8 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 outline-none transition-all"
+              className="w-full px-8 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 outline-none transition-all bg-white dark:bg-[#212121] dark:text-[#b0b0b0] dark:border-gray-600 placeholder:text-gray-400 dark:placeholder:text-[#b0b0b0]"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleSearch}
@@ -60,7 +60,7 @@ const Hero = () => {
               {popularSearches.map((search, index) => (
                 <button
                   key={index}
-                  className="px-4 py-2 text-sm bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 transition-colors"
+                  className="px-4 py-2 text-sm bg-white dark:bg-[#212121] text-gray-700 dark:text-[#b0b0b0] border border-gray-200 dark:border-gray-600 rounded-lg hover:border-blue-500 hover:text-blue-500 transition-colors"
                   onClick={() => navigate("/userview")}
                 >
                   {search}

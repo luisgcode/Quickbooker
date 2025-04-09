@@ -15,8 +15,8 @@ export default {
         regularText: "#323648",
         blueCompany: "#196af0",
         footerColor: "#1f252c  ",
-        darkBG: "#121620",
-        darkText: "#E0E6ED ",
+        darkBG: "#121212",
+        darkText: "#e8e8e8 ",
       },
       spacing: {
         sma_pad: "24px 24px",

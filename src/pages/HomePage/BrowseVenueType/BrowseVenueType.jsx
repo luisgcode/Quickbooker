@@ -35,10 +35,10 @@ const BrowseVenueType = () => {
               alt={t(`browseVenue.types.${venue.key}`)}
               className="w-full h-40 object-cover rounded-lg shadow-md"
             />
-            <p className="mt-2 font-semibold text-blueCompany">
+            <p className="mt-2 font-semibold text-blueCompany dark:text-[#e8e8e8]">
               {t(`browseVenue.types.${venue.key}`)}
             </p>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-[#b0b0b0]">
               {t("browseVenue.available", { count: venue.properties })}
             </p>
           </div>

@@ -23,7 +23,6 @@ const Navbar = () => {
     });
 
     observer.observe(root, { attributes: true, attributeFilter: ["class"] });
-    // Inicial
     setIsDarkMode(root.classList.contains("dark"));
 
     return () => observer.disconnect();
@@ -61,13 +60,23 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex gap-6 items-center">
-            <Link to="/">{t("navbar.home")}</Link>
-            <Link to="/signup">{t("navbar.signup")}</Link>
+            <Link
+              to="/"
+              className="text-gray-800 dark:text-white hover:underline"
+            >
+              {t("navbar.home")}
+            </Link>
+            <Link
+              to="/signup"
+              className="text-gray-800 dark:text-white hover:underline"
+            >
+              {t("navbar.signup")}
+            </Link>
             <ThemeToggle />
             <li className="text-sm">
               {currentLanguage === "en" ? (
                 <button
-                  className="flex items-center gap-1 text-blueCompany min-w-[45px]"
+                  className="flex items-center gap-1 text-blueCompany dark:text-white min-w-[45px]"
                   onClick={() => handleLanguage("fr")}
                 >
                   <MdLanguage />
@@ -75,7 +84,7 @@ const Navbar = () => {
                 </button>
               ) : (
                 <button
-                  className="flex items-center gap-1 text-blueCompany min-w-[45px]"
+                  className="flex items-center gap-1 text-blueCompany dark:text-white min-w-[45px]"
                   onClick={() => handleLanguage("en")}
                 >
                   <MdLanguage />
@@ -87,7 +96,7 @@ const Navbar = () => {
 
           {/* Hamburger Button */}
           <button
-            className="text-4xl text-blueCompany md:hidden"
+            className="text-4xl text-blueCompany dark:text-white md:hidden"
             onClick={toggleMobileMenu}
           >
             {isMobileMenuOpen ? <FaTimes /> : <RxHamburgerMenu />}
@@ -96,20 +105,29 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 dark:bg-gray-900">
+          <div className="md:hidden bg-white border-t border-gray-200 dark:bg-gray-900 dark:border-gray-700">
             <ul className="flex flex-col gap-4 p-4">
               <li>
-                <Link to="/" className="nav-lins block">
+                <Link
+                  to="/"
+                  className="nav-lins block text-gray-800 dark:text-white"
+                >
                   {t("navbar.home")}
                 </Link>
               </li>
               <li>
-                <a className="nav-lins block" href="#features">
+                <a
+                  className="nav-lins block text-gray-800 dark:text-white"
+                  href="#features"
+                >
                   {t("navbar.features")}
                 </a>
               </li>
               <li>
-                <a className="nav-lins block" href="#pricing">
+                <a
+                  className="nav-lins block text-gray-800 dark:text-white"
+                  href="#pricing"
+                >
                   {t("navbar.pricing")}
                 </a>
               </li>
