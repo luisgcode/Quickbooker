@@ -1,14 +1,16 @@
 [
   {
-    "name": "Example of creation for admins",
+    "name": "Example Venue",
     "image": "/images/elegant-rose-hall.png",
     "address": {
-      "street": "Your Address",
+      "street": "123 Main Avenue",
       "city": "Toronto",
-      "province": "ON"
+      "province": "ON",
+      "postal_code": "1A2 3B4",
+      "country": "Canada"
     },
     "contact": {
-      "phone": "Your contact Phone, users will see ",
+      "phone": "416-123-4567",
       "email": "weddings@elegantrose.com"
     },
     "amenities": ["Catering services", "Dance floor", "Bridal suite"],

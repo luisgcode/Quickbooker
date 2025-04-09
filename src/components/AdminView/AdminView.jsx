@@ -81,6 +81,42 @@ const AdminView = () => {
 
   // Handle Save
   const handleSave = () => {
+    if (!editedVenue.name.trim()) {
+      alert("Venue name is required!");
+      return;
+    }
+    if (
+      !editedVenue.address.street.trim() ||
+      !editedVenue.address.city.trim() ||
+      !editedVenue.address.postal_code.trim() ||
+      !editedVenue.address.province.trim() ||
+      !editedVenue.address.country.trim()
+    ) {
+      alert("Address fields cannot be empty!");
+      return;
+    }
+
+    if (
+      !editedVenue.contact.email.trim() ||
+      !editedVenue.contact.phone.trim()
+    ) {
+      alert("Contact fields cannot be empty!");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(editedVenue.contact.email)) {
+      alert("Invalid email format!");
+      return;
+    }
+
+    const phoneRegex =
+      /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
+    if (!phoneRegex.test(editedVenue.contact.phone)) {
+      alert("Invalid phone number format!");
+      return;
+    }
+
     if (window.confirm("Do you want to save changes?")) {
       const updatedVenues = [...venues];
       updatedVenues[editingIndex] = editedVenue;
@@ -113,6 +149,35 @@ const AdminView = () => {
       alert("Venue name is required!");
       return;
     }
+    if (
+      !newVenue.address.street.trim() ||
+      !newVenue.address.city.trim() ||
+      !newVenue.address.postal_code.trim() ||
+      !newVenue.address.province.trim() ||
+      !newVenue.address.country.trim()
+    ) {
+      alert("Address fields cannot be empty!");
+      return;
+    }
+
+    if (!newVenue.contact.email.trim() || !newVenue.contact.phone.trim()) {
+      alert("Contact fields cannot be empty!");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(newVenue.contact.email)) {
+      alert("Invalid email format!");
+      return;
+    }
+
+    const phoneRegex =
+      /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im;
+    if (!phoneRegex.test(newVenue.contact.phone)) {
+      alert("Invalid phone number format!");
+      return;
+    }
+
     setVenues([...venues, newVenue]);
     toggleModal();
   };
@@ -362,50 +427,23 @@ const AdminView = () => {
                   </div>
                 </div>
               ) : (
-                <div className="flex-1">
-                  <h2 className="font-bold mb-3">{venue.name}</h2>
-                  <div className="flex items-center text-gray-600 mb-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p>
-                      {venue.address.street}, {venue.address.city},{" "}
-                      {venue.address.province}
-                    </p>
+                <div className="flex flex-1 flex-col lg:flex-row">
+                  <div className="flex justify-center items-center">
+                    <img
+                      src={
+                        venue.image
+                          ? venue.image
+                          : "/src/assets/images/venues/placeholder-image.png"
+                      }
+                      alt={venue.name}
+                      className="w-60 h-40 object-cover rounded-md mr-6 shadow-sm"
+                    />
                   </div>
-                  <div className="flex items-center text-gray-700 text-sm mb-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    <p>{venue.contact.email}</p>
-                    <span className="mx-2">|</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                    </svg>
-                    <p>{venue.contact.phone}</p>
-                  </div>
-                  {venue.amenities && venue.amenities.length > 0 && (
-                    <div className="flex items-center text-sm text-gray-600">
+                  <div>
+                    <h2 className="font-bold mt-4 lg:mt-0 mb-3">
+                      {venue.name}
+                    </h2>
+                    <div className="flex items-center text-gray-600 mb-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 mr-2"
@@ -414,26 +452,68 @@ const AdminView = () => {
                       >
                         <path
                           fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
                           clipRule="evenodd"
                         />
                       </svg>
-                      <p>{venue.amenities.slice(0, 3).join(", ")}...</p>
+                      <p>
+                        {venue.address.street}, {venue.address.city},{" "}
+                        {venue.address.province}
+                      </p>
                     </div>
-                  )}
-                  <div className="mt-3 flex space-x-2">
-                    <button
-                      className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
-                      onClick={() => handleEdit(index)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
-                      onClick={() => handleDelete(index)}
-                    >
-                      Delete
-                    </button>
+                    <div className="flex items-center text-gray-700 text-sm mb-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                      </svg>
+                      <p>{venue.contact.email}</p>
+                      <span className="mx-2">|</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      <p>{venue.contact.phone}</p>
+                    </div>
+                    {venue.amenities && venue.amenities.length > 0 && (
+                      <div className="flex items-center text-sm text-gray-600">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 mr-2"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <p>{venue.amenities.slice(0, 3).join(", ")}...</p>
+                      </div>
+                    )}
+                    <div className="mt-3 flex space-x-2">
+                      <button
+                        className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
+                        onClick={() => handleEdit(index)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
+                        onClick={() => handleDelete(index)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               )}
