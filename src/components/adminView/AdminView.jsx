@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const AdminView = () => {
+  const [t] = useTranslation("global");
+
   const [venues, setVenues] = useState([]);
   const [editingIndex, setEditingIndex] = useState(null);
   const [editedVenue, setEditedVenue] = useState(null);
@@ -275,7 +278,7 @@ const AdminView = () => {
     <main className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-900">
-          Welcome to the Admin View
+          {t("adminView.welcome")}
         </h1>
         <button
           className="ml-auto py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition flex items-center"
@@ -293,12 +296,12 @@ const AdminView = () => {
               clipRule="evenodd"
             />
           </svg>
-          Add Venue
+          {t("adminView.addVenue")}
         </button>
       </div>
 
       {venues.length === 0 ? (
-        <p>No venues found.</p>
+        <p>{t("adminView.noVenues")}</p>
       ) : (
         <div className="space-y-6">
           {venues.map((venue, index) => (
@@ -323,7 +326,7 @@ const AdminView = () => {
                           type="text"
                           value={editedVenue.address.street}
                           onChange={(e) => handleAddressChange(e, "street")}
-                          placeholder="Street"
+                          placeholder={t("adminView.form.street")}
                         />
                         <input
                           className="w-full p-1 border rounded"
@@ -392,7 +395,7 @@ const AdminView = () => {
                             onChange={(e) =>
                               handleAmenityChange(i, e.target.value)
                             }
-                            placeholder="Amenity"
+                            placeholder={t("adminView.form.amenity")}
                           />
                           <button
                             className="ml-auto py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
@@ -406,7 +409,7 @@ const AdminView = () => {
                         className="mt-2 py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
                         onClick={handleAddAmenity}
                       >
-                        + Add Amenity
+                        {t("adminView.addAmenity")}
                       </button>
                     </div>
                   </div>
@@ -416,13 +419,13 @@ const AdminView = () => {
                       className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md transition"
                       onClick={handleSave}
                     >
-                      Update
+                      {t("adminView.update")}
                     </button>
                     <button
                       className="py-2 px-4 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-md transition"
                       onClick={handleCancel}
                     >
-                      Cancel
+                      {t("adminView.cancel")}
                     </button>
                   </div>
                 </div>
@@ -505,13 +508,13 @@ const AdminView = () => {
                         className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
                         onClick={() => handleEdit(index)}
                       >
-                        Edit
+                        {t("adminView.edit")}
                       </button>
                       <button
                         className="py-2 px-4 bg-red-500 hover:bg-red-600 text-white font-medium rounded-md transition"
                         onClick={() => handleDelete(index)}
                       >
-                        Delete
+                        {t("adminView.delete")}
                       </button>
                     </div>
                   </div>
@@ -546,7 +549,10 @@ const AdminView = () => {
               </svg>
             </button>
 
-            <h2 className="text-xl font-bold mb-4">Add New Venue</h2>
+            <h2 className="text-xl font-bold mb-4">
+              {t("adminView.modal.title")}
+            </h2>
+
             <form>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
@@ -558,7 +564,7 @@ const AdminView = () => {
                     onChange={(e) => handleNewVenueChange(e, "name")}
                   />
                   <div>
-                    <strong>Address:</strong>
+                    <strong>{t("adminView.address")}:</strong>
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <input
                         className="w-full p-1 border rounded"
@@ -606,7 +612,8 @@ const AdminView = () => {
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <strong>Contact:</strong>
+                    <strong>{t("adminView.contact")}:</strong>
+
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <input
                         className="w-full p-1 border rounded"
@@ -625,7 +632,7 @@ const AdminView = () => {
                     </div>
                   </div>
                   <div>
-                    <strong>Amenities:</strong>
+                    <strong>{t("adminView.amenities")}:</strong>
                     {newVenue.amenities.map((amenity, i) => (
                       <div key={i} className="flex items-center mt-2 space-x-2">
                         <input
@@ -662,14 +669,14 @@ const AdminView = () => {
                   className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md transition"
                   onClick={handleAddVenue}
                 >
-                  Add
+                  {t("adminView.modal.add")}
                 </button>
                 <button
                   type="button"
                   className="py-2 px-4 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-md transition"
                   onClick={toggleModal}
                 >
-                  Cancel
+                  {t("adminView.modal.cancel")}
                 </button>
               </div>
             </form>

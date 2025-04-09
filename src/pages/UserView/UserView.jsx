@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const UserView = () => {
+  const [t] = useTranslation("global");
+
   const [data, setData] = useState([]);
   const [selectedVenue, setSelectedVenue] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -86,7 +89,7 @@ const UserView = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">
-        Find Your Perfect Venue
+        {t("userview.title")}
       </h1>
 
       <div className="space-y-6">
@@ -157,7 +160,9 @@ const UserView = () => {
                 >
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
                 </svg>
-                <p>Max Capacity: {venue.max_capacity} people</p>
+                <p>
+                  {t("userview.maxCapacity")}: {venue.max_capacity} people
+                </p>
               </div>
 
               {/* Amenities */}
@@ -196,7 +201,7 @@ const UserView = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              Book Venue
+              {t("userview.bookButton")}
             </button>
           </div>
         ))}
@@ -228,19 +233,18 @@ const UserView = () => {
             </button>
 
             <h2 className="text-xl font-bold mb-4">
-              Book {selectedVenue.name}
+              {t("userview.form.bookTitle", { venue: selectedVenue.name })}
             </h2>
             {bookingConfirmed ? (
               <div className="text-center">
                 <p className="text-green-600 font-semibold">
-                  Thank you for your order! Details have been sent to your
-                  email.
+                  {t("userview.form.thankYou")}
                 </p>
                 <button
                   onClick={() => setShowForm(false)}
                   className="mt-4 py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md"
                 >
-                  Close
+                  {t("userview.form.close")}
                 </button>
               </div>
             ) : (
@@ -251,7 +255,7 @@ const UserView = () => {
                     <input
                       type="text"
                       name="name"
-                      placeholder="Full Name"
+                      placeholder={t("userview.form.fullName")}
                       value={bookingDetails.name}
                       onChange={handleInputChange}
                       className="w-full p-2 border rounded-md"
@@ -260,7 +264,7 @@ const UserView = () => {
                     <input
                       type="email"
                       name="email"
-                      placeholder="Email"
+                      placeholder={t("userview.form.email")}
                       value={bookingDetails.email}
                       onChange={handleInputChange}
                       className="w-full p-2 border rounded-md"
@@ -269,7 +273,7 @@ const UserView = () => {
                     <input
                       type="tel"
                       name="phone"
-                      placeholder="Phone"
+                      placeholder={t("userview.form.phone")}
                       value={bookingDetails.phone}
                       onChange={handleInputChange}
                       className="w-full p-2 border rounded-md"
@@ -278,6 +282,7 @@ const UserView = () => {
                     <input
                       type="date"
                       name="eventDate"
+                      aria-label={t("userview.form.eventDate")}
                       value={bookingDetails.eventDate}
                       onChange={handleInputChange}
                       className="w-full p-2 border rounded-md"
@@ -290,6 +295,7 @@ const UserView = () => {
                       onChange={handleInputChange}
                       className="w-full p-2 border rounded-md"
                       required
+                      aria-label={t("userview.form.eventTime")}
                     />
                   </div>
 
@@ -302,7 +308,10 @@ const UserView = () => {
                       className="w-full p-2 border rounded-md"
                       required
                     >
-                      <option value="">Select Capacity</option>
+                      <option value="">
+                        {t("userview.form.selectCapacity")}
+                      </option>
+
                       <option value="50">50 people ($500)</option>
                       <option value="100">100 people ($1000)</option>
                       <option value="200">200 people ($2000)</option>
@@ -314,14 +323,18 @@ const UserView = () => {
                       className="w-full p-2 border rounded-md"
                       required
                     >
-                      <option value="">Select Setup</option>
+                      <option value="">{t("userview.form.selectSetup")}</option>
+
                       <option value="theater">Theater Style ($200)</option>
                       <option value="u-shape">U-Shape Style ($300)</option>
                       <option value="boardroom">Boardroom Style ($400)</option>
                       <option value="classroom">Classroom Style ($350)</option>
                     </select>
                     <div className="space-y-2">
-                      <p className="font-medium">Additional Services:</p>
+                      <p className="font-medium">
+                        {t("userview.form.additionalServices")}
+                      </p>
+
                       <label className="flex items-center">
                         <input
                           type="checkbox"
@@ -329,7 +342,7 @@ const UserView = () => {
                           onChange={handleCheckboxChange}
                           className="mr-2"
                         />
-                        Catering ($500)
+                        {t("userview.form.catering")} ($500)
                       </label>
                       <label className="flex items-center">
                         <input
@@ -338,7 +351,7 @@ const UserView = () => {
                           onChange={handleCheckboxChange}
                           className="mr-2"
                         />
-                        Audio-Visual Equipment ($300)
+                        {t("userview.form.av")} ($300)
                       </label>
                       <label className="flex items-center">
                         <input
@@ -347,7 +360,7 @@ const UserView = () => {
                           onChange={handleCheckboxChange}
                           className="mr-2"
                         />
-                        Decorations ($400)
+                        {t("userview.form.decorations")} ($400)
                       </label>
                     </div>
                     <textarea

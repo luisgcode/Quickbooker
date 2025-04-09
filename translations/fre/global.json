@@ -153,5 +153,68 @@
   "notFound": {
     "title": "404 Introuvable",
     "message": "La page que vous recherchez n'existe pas."
+  },
+  "adminView": {
+    "welcome": "Bienvenue dans la vue administrateur",
+    "addVenue": "Ajouter un lieu",
+    "noVenues": "Aucun lieu trouvé.",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "update": "Mettre à jour",
+    "cancel": "Annuler",
+    "address": "Adresse",
+    "contact": "Contact",
+    "amenities": "Commodités",
+    "addAmenity": "+ Ajouter une commodité",
+    "venueNamePlaceholder": "Nom du lieu",
+    "modal": {
+      "title": "Ajouter un nouveau lieu",
+      "add": "Ajouter",
+      "cancel": "Annuler"
+    },
+    "form": {
+      "street": "Rue",
+      "city": "Ville",
+      "postalCode": "Code postal",
+      "province": "Province",
+      "country": "Pays",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "amenity": "Commodité"
+    },
+    "alerts": {
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce lieu ?",
+      "cancelEdit": "Êtes-vous sûr de vouloir annuler la modification ?",
+      "saveChanges": "Voulez-vous enregistrer les modifications ?",
+      "nameRequired": "Le nom du lieu est requis !",
+      "addressRequired": "Les champs d'adresse ne peuvent pas être vides !",
+      "contactRequired": "Les champs de contact ne peuvent pas être vides !",
+      "invalidEmail": "Format d'e-mail invalide !",
+      "invalidPhone": "Format de numéro de téléphone invalide !"
+    }
+  },
+  "userview": {
+    "title": "Trouvez le lieu parfait",
+    "maxCapacity": "Capacité maximale",
+    "bookButton": "Réserver",
+    "form": {
+      "bookTitle": "Réserver {{venue}}",
+      "fullName": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "eventDate": "Date de l'événement",
+      "eventTime": "Heure de l'événement",
+      "selectCapacity": "Sélectionner la capacité",
+      "selectSetup": "Sélectionner la disposition",
+      "additionalServices": "Services supplémentaires",
+      "catering": "Restauration (500 $)",
+      "av": "Équipement audiovisuel (300 $)",
+      "decorations": "Décorations (400 $)",
+      "specialRequests": "Demandes spéciales",
+      "total": "Total",
+      "proceed": "Continuer",
+      "thankYou": "Merci pour votre réservation ! Les détails ont été envoyés à votre email.",
+      "close": "Fermer"
+    }
   }
 }
