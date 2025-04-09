@@ -50,7 +50,7 @@ const EventCard = ({ event }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 flex flex-col md:flex-row gap-4 mb-6">
+    <div className="bg-white dark:bg-[#212121] shadow-md rounded-lg p-6 flex flex-col md:flex-row gap-4 mb-6 transition-colors">
       <img
         src={event.image}
         alt={event.title}
@@ -58,12 +58,14 @@ const EventCard = ({ event }) => {
       />
       <div className="flex flex-col flex-grow">
         <p className="text-blue-600 text-sm font-semibold">{event.date}</p>
-        <h3 className="text-xl font-bold">{event.title}</h3>
-        <p className="text-gray-600 flex items-center gap-2 mt-1">
+        <h3 className="text-xl font-bold dark:text-[#e8e8e8]">{event.title}</h3>
+        <p className="text-gray-600 dark:text-[#b0b0b0] flex items-center gap-2 mt-1">
           <FaMapMarkerAlt className="text-gray-500" />
           {event.location}
         </p>
-        <p className="text-gray-700 mt-2 text-sm">{event.description}</p>
+        <p className="text-gray-700 dark:text-[#b0b0b0] mt-2 text-sm">
+          {event.description}
+        </p>
 
         {isAttending ? (
           isRegistered ? (
@@ -83,7 +85,7 @@ const EventCard = ({ event }) => {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
-                className="border p-2 rounded-lg text-gray-700"
+                className="border border-gray-300 dark:border-[#555] p-2 rounded-lg text-gray-700 dark:text-[#b0b0b0] bg-white dark:bg-[#1c1c1c]"
               />
               <input
                 type="email"
@@ -93,7 +95,7 @@ const EventCard = ({ event }) => {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
-                className="border p-2 rounded-lg text-gray-700"
+                className="border border-gray-300 dark:border-[#555] p-2 rounded-lg text-gray-700 dark:text-[#b0b0b0] bg-white dark:bg-[#1c1c1c]"
               />
               <button
                 type="submit"
@@ -124,34 +126,37 @@ const Upcomings = () => {
 
   return (
     <div className="p-sma_pad md:p-mid_pad">
-      <h3>{t("events.title")}</h3>
-      <div className="flex gap-6 border-b mb-6">
+      <h3 className="dark:text-[#e8e8e8]">{t("events.title")}</h3>
+      <div className="flex gap-6 border-b border-gray-200 dark:border-gray-700 mb-6">
         <button
-          className={`pb-2 ${
+          className={`pb-2 transition ${
             selectedTab === "upcoming"
               ? "text-blue-600 border-b-2 border-blue-600 font-semibold"
-              : "text-gray-600"
+              : "text-gray-600 dark:text-[#b0b0b0]"
           }`}
           onClick={() => setSelectedTab("upcoming")}
         >
           {t("events.tabs.upcoming")}
         </button>
         <button
-          className={`pb-2 ${
+          className={`pb-2 transition ${
             selectedTab === "past"
               ? "text-blue-600 border-b-2 border-blue-600 font-semibold"
-              : "text-gray-600"
+              : "text-gray-600 dark:text-[#b0b0b0]"
           }`}
           onClick={() => setSelectedTab("past")}
         >
           {t("events.tabs.past")}
         </button>
       </div>
+
       <div className="flex flex-col gap-2">
         {selectedTab === "upcoming" && events.length > 0 ? (
           events.map((event) => <EventCard key={event.id} event={event} />)
         ) : (
-          <p className="text-gray-500">{t("events.noEvents")}</p>
+          <p className="text-gray-500 dark:text-[#b0b0b0]">
+            {t("events.noEvents")}
+          </p>
         )}
       </div>
     </div>

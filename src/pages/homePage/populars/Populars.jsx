@@ -58,8 +58,11 @@ const Populars = () => {
   return (
     <div className="p-sma_pad md:p-mid_pad">
       <div className="flex justify-between items-center mb-4">
-        <h3>{t("populars.title")}</h3>
-        <Link className="text-blue-600 hover:underline" to="/userview">
+        <h3 className="dark:text-[#e8e8e8]">{t("populars.title")}</h3>
+        <Link
+          className="text-blue-600 hover:underline dark:text-[#b0b0b0]"
+          to="/userview"
+        >
           {t("populars.seeAll")}
         </Link>
       </div>
@@ -68,9 +71,9 @@ const Populars = () => {
         {popularVenues.map((venue) => (
           <div
             key={venue.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden relative"
+            className="bg-white dark:bg-[#212121] rounded-lg shadow-md overflow-hidden relative transition-colors"
           >
-            <button className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md">
+            <button className="absolute top-4 right-4 bg-white dark:bg-[#333] p-2 rounded-full shadow-md">
               <FaHeart className="text-gray-500 hover:text-red-500 transition" />
             </button>
 
@@ -81,24 +84,28 @@ const Populars = () => {
             />
 
             <div className="p-4">
-              <h4 className="text-lg font-semibold">{venue.title}</h4>
-              <p className="text-gray-500 text-sm">{venue.location}</p>
+              <h4 className="text-lg font-semibold dark:text-[#e8e8e8]">
+                {venue.title}
+              </h4>
+              <p className="text-gray-500 text-sm dark:text-[#b0b0b0]">
+                {venue.location}
+              </p>
 
               <div className="flex items-center mt-2">
                 <span className="bg-blue-600 text-white px-2 py-1 text-sm font-semibold rounded-md">
                   {venue.rating}
                 </span>
-                <p className="ml-2 text-sm text-gray-700">
-                  <span className="font-semibold">
+                <p className="ml-2 text-sm text-gray-700 dark:text-[#b0b0b0]">
+                  <span className="font-semibold dark:text-[#e8e8e8]">
                     {t(`populars.reviewText.${venue.reviewText}`)}
                   </span>{" "}
                   · {venue.reviews}
                 </p>
               </div>
 
-              <p className="mt-3 text-gray-700 text-sm">
+              <p className="mt-3 text-gray-700 text-sm dark:text-[#b0b0b0]">
                 {t("populars.startingFrom")}{" "}
-                <span className="font-bold">
+                <span className="font-bold dark:text-[#e8e8e8]">
                   {t("populars.currency")} {venue.price}
                 </span>
               </p>

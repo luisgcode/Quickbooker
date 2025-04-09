@@ -32,11 +32,15 @@ const HowItWorks = () => {
         {steps.map((step) => (
           <div
             key={step.id}
-            className="bg-white flex flex-col items-center border border-gray-200 rounded-lg hover:border-blue-500 transition-colors cursor-pointer py-6 px-2 text-center"
+            className="bg-white dark:bg-[#212121] flex flex-col items-center border border-gray-200 rounded-lg hover:border-blue-500 transition-colors cursor-pointer py-6 px-2 text-center"
           >
             <div className="text-xl my-2 text-blueCompany">{step.icon}</div>
-            <h4 className="text-sm font-semibold mb-4">{step.title}</h4>
-            <p className="text-gray-600 text-sm">{step.description}</p>
+            <h4 className="text-sm font-semibold mb-4 dark:text-[#e8e8e8]">
+              {step.title}
+            </h4>
+            <p className="text-gray-600 text-sm dark:text-[#b0b0b0]">
+              {step.description}
+            </p>
           </div>
         ))}
       </div>

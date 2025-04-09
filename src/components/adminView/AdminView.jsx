@@ -277,7 +277,7 @@ const AdminView = () => {
   return (
     <main className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-[#e8e8e8]">
           {t("adminView.welcome")}
         </h1>
         <button
@@ -443,10 +443,10 @@ const AdminView = () => {
                     />
                   </div>
                   <div>
-                    <h2 className="font-bold mt-4 lg:mt-0 mb-3">
+                    <h2 className="font-bold mt-4 lg:mt-0 mb-3 dark:text-[#e8e8e8]">
                       {venue.name}
                     </h2>
-                    <div className="flex items-center text-gray-600 mb-2">
+                    <div className="flex items-center text-gray-600 dark:text-[#b0b0b0] mb-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 mr-2"
@@ -464,7 +464,7 @@ const AdminView = () => {
                         {venue.address.province}
                       </p>
                     </div>
-                    <div className="flex items-center text-gray-700 text-sm mb-2">
+                    <div className="flex items-center text-gray-700 text-sm dark:text-[#b0b0b0] mb-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5 mr-2"
@@ -487,7 +487,7 @@ const AdminView = () => {
                       <p>{venue.contact.phone}</p>
                     </div>
                     {venue.amenities && venue.amenities.length > 0 && (
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-600 dark:text-[#b0b0b0]">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-5 w-5 mr-2"
@@ -528,7 +528,7 @@ const AdminView = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg p-6 w-full max-w-4xl mx-4 relative">
+          <div className="bg-white dark:bg-[#212121] rounded-lg p-6 w-full max-w-4xl mx-4 relative">
             <button
               onClick={toggleModal}
               className="absolute top-4 right-4 text-gray-600 hover:text-gray-900"
@@ -549,7 +549,7 @@ const AdminView = () => {
               </svg>
             </button>
 
-            <h2 className="text-xl font-bold mb-4">
+            <h2 className="text-xl font-bold mb-4 dark:text-[#e8e8e8]">
               {t("adminView.modal.title")}
             </h2>
 
@@ -564,7 +564,9 @@ const AdminView = () => {
                     onChange={(e) => handleNewVenueChange(e, "name")}
                   />
                   <div>
-                    <strong>{t("adminView.address")}:</strong>
+                    <strong className="dark:text-[#e8e8e8]">
+                      {t("adminView.address")}:
+                    </strong>
                     <div className="grid grid-cols-2 gap-2 mt-2">
                       <input
                         className="w-full p-1 border rounded"
