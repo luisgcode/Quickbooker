@@ -1,5 +1,6 @@
 // QuickBooker logo
 import quickBookerLogo from "../assets/images/logo.svg";
+import quickBookerLogoWhite from "../assets/images/logo-white.svg";
 
 // Venues types
 import eventBall from "../assets/images/venues/event-ball.jpg";
@@ -45,4 +46,5 @@ export {
   eventWedding,
   eventGardens,
   eventMusic,
+  quickBookerLogoWhite,
 };

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { quickBookerLogo } from "../media";
+import React, { useState, useEffect } from "react";
+import { quickBookerLogo, quickBookerLogoWhite } from "../media";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -13,6 +13,21 @@ const Navbar = () => {
   const [t, i18n] = useTranslation("global");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Detecta si el modo dark está activo
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(root.classList.contains("dark"));
+    });
+
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    // Inicial
+    setIsDarkMode(root.classList.contains("dark"));
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleLanguage = (lang) => {
     i18n.changeLanguage(lang);
@@ -38,7 +53,7 @@ const Navbar = () => {
             <Link to="/">
               <img
                 className="max-w-40"
-                src={quickBookerLogo}
+                src={isDarkMode ? quickBookerLogoWhite : quickBookerLogo}
                 alt="Company's logo"
               />
             </Link>
@@ -81,7 +96,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="md:hidden bg-white border-t border-gray-200 dark:bg-gray-900">
             <ul className="flex flex-col gap-4 p-4">
               <li>
                 <Link to="/" className="nav-lins block">
