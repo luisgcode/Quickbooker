@@ -19,13 +19,6 @@
       "bars": "Bars & Lounges"
     }
   },
-  "signUp": {
-    "title": "Choose Your Account Type",
-    "clientOptionTitle": "Sign Up as a Client",
-    "clientOptionDescription": "Find and book perfect venues for your events.",
-    "ownerOptionTitle": "Sign Up as a Business Owner",
-    "ownerOptionDescription": "List your venue and start accepting bookings."
-  },
   "browseVenue": {
     "title": "Browse by Venue Type",
     "available": "{{count}} available now",
@@ -64,5 +57,101 @@
       "wonderful": "Wonderful",
       "superb": "Superb"
     }
+  },
+  "events": {
+    "title": "Public Events",
+    "tabs": {
+      "upcoming": "Upcoming",
+      "past": "Past"
+    },
+    "noEvents": "No events available.",
+    "attendBtn": "Attend",
+    "form": {
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Your Email",
+      "submitBtn": "Submit"
+    },
+    "success": {
+      "message": "You have successfully registered!",
+      "idText": "Your Identification ID is:"
+    }
+  },
+  "footer": {
+    "support": {
+      "title": "Support",
+      "faq": "FAQ",
+      "contact": "Contact Us",
+      "terms": "Conditions",
+      "privacy": "Privacy Policy"
+    },
+    "discover": {
+      "title": "Discover",
+      "spaces": "Find a Space",
+      "how": "How It Works",
+      "pricing": "Pricing",
+      "reviews": "Customer Reviews"
+    },
+    "list": {
+      "title": "List your space",
+      "host": "Become a Host",
+      "guide": "Hosting Guide",
+      "safety": "Safety & Security",
+      "support": "Host Support"
+    },
+    "find": {
+      "title": "Find us",
+      "instagram": "Instagram",
+      "linkedin": "Linkedin",
+      "youtube": "Youtube",
+      "facebook": "Facebook"
+    },
+    "accessibility": {
+      "title": "Accessibility",
+      "languages": "Languages",
+      "contrast": "Contrast",
+      "text": "Text Size",
+      "reader": "Screen Reader",
+      "guides": "Guides"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "help@quickobooker.com",
+      "location": "London, Ontario, Canada.",
+      "phone": "+ 1 (437) 669-1234"
+    }
+  },
+  "navbar": {
+    "home": "Home",
+    "signup": "Sign up",
+    "features": "Features",
+    "pricing": "Pricing",
+    "getStarted": "Get Started",
+    "language": {
+      "eng": "ENG",
+      "fra": "FRA"
+    }
+  },
+  "signUp": {
+    "title": "Choose Your Account Type",
+    "clientOptionTitle": "Sign Up as a Client",
+    "clientOptionDescription": "Find and book perfect venues for your events.",
+    "ownerOptionTitle": "Sign Up as a Business Owner",
+    "ownerOptionDescription": "List your venue and start accepting bookings.",
+    "form": {
+      "fullNameLabel": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "cityLabel": "City",
+      "cityPlaceholder": "Enter your city",
+      "submitButton": "Sign Up"
+    },
+    "businessMessage": "Contact our team to find the best plan for you."
+  },
+  "notFound": {
+    "title": "404 Not Found",
+    "message": "The page you are looking for does not exist."
   }
 }

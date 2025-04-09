@@ -1,137 +1,138 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 import { BiSupport } from "react-icons/bi";
 import { RiCompassDiscoverLine } from "react-icons/ri";
-import { FaList } from "react-icons/fa6";
-import { FaMagnifyingGlass } from "react-icons/fa6";
-import { FaEnvelope } from "react-icons/fa";
+import { FaList, FaMagnifyingGlass, FaEnvelope } from "react-icons/fa6";
 import { IoAccessibility } from "react-icons/io5";
 
 const Footer = () => {
+  const [t] = useTranslation("global");
+
   return (
-    <footer className="bg-footerColor p-sma_pad md:p-20  text-white dark:border-t-2">
-      <nav className="flex flex-col  md:flex-row w-full gap-10 justify-between">
+    <footer className="bg-footerColor p-sma_pad md:p-20 text-white dark:border-t-2">
+      <nav className="flex flex-col md:flex-row w-full gap-10 justify-between">
         {/* Support */}
-        <img src="../../as" alt="" />
-        <div className=" ">
+        <div>
           <p className="font-semibold mb-6 flex gap-2">
             <BiSupport />
-            Support
+            {t("footer.support.title")}
           </p>
-
-          <ul className="text-sm flex flex-col gap-2 ">
-            <li className="hover:scale-110 transition-transform">
-              <a className="" href="/faq">
-                FAQ
-              </a>
+          <ul className="text-sm flex flex-col gap-2">
+            <li>
+              <a href="/faq">{t("footer.support.faq")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/contact">Contact Us</a>
+            <li>
+              <a href="/contact">{t("footer.support.contact")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/terms"> Conditions</a>
+            <li>
+              <a href="/terms">{t("footer.support.terms")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/privacy">Privacy Policy</a>
+            <li>
+              <a href="/privacy">{t("footer.support.privacy")}</a>
             </li>
           </ul>
         </div>
+
         {/* Discover */}
-        <div className=" ">
+        <div>
           <p className="font-semibold mb-6 flex gap-2">
             <RiCompassDiscoverLine />
-            Discover
+            {t("footer.discover.title")}
           </p>
           <ul className="text-sm flex flex-col gap-2">
-            <li className="hover:scale-110 transition-transform">
-              <a href="/spaces">Find a Space</a>
+            <li>
+              <a href="/spaces">{t("footer.discover.spaces")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/how-it-works">How It Works</a>
+            <li>
+              <a href="/how-it-works">{t("footer.discover.how")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/pricing">Pricing</a>
+            <li>
+              <a href="/pricing">{t("footer.discover.pricing")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/reviews">Customer Reviews</a>
+            <li>
+              <a href="/reviews">{t("footer.discover.reviews")}</a>
             </li>
           </ul>
         </div>
-        {/* space */}
-        <div className=" ">
+
+        {/* List your space */}
+        <div>
           <p className="font-semibold mb-6 flex gap-2">
             <FaList />
-            List your space
+            {t("footer.list.title")}
           </p>
           <ul className="text-sm flex flex-col gap-2">
-            <li className="hover:scale-110 transition-transform">
-              <a href="/host">Become a Host</a>
+            <li>
+              <a href="/host">{t("footer.list.host")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/host-guide">Hosting Guide</a>
+            <li>
+              <a href="/host-guide">{t("footer.list.guide")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/safety">Safety & Security</a>
+            <li>
+              <a href="/safety">{t("footer.list.safety")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/support">Host Support</a>
+            <li>
+              <a href="/support">{t("footer.list.support")}</a>
             </li>
           </ul>
         </div>
-        {/* Social */}
-        <div className=" ">
+
+        {/* Social Media */}
+        <div>
           <p className="font-semibold mb-6 flex gap-2">
             <FaMagnifyingGlass />
-            Find us
+            {t("footer.find.title")}
           </p>
           <ul className="text-sm flex flex-col gap-2">
-            <li className="hover:scale-110 transition-transform">
-              <a href="/host">Instagram</a>
+            <li>
+              <a href="/host">{t("footer.find.instagram")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/host-guide">Linkedin</a>
+            <li>
+              <a href="/host-guide">{t("footer.find.linkedin")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/safety">Youtube</a>
+            <li>
+              <a href="/safety">{t("footer.find.youtube")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/support">Facebook</a>
+            <li>
+              <a href="/support">{t("footer.find.facebook")}</a>
             </li>
           </ul>
         </div>
-        {/* Accesibility */}
-        <div className=" ">
+
+        {/* Accessibility */}
+        <div>
           <p className="font-semibold mb-6 flex gap-2">
             <IoAccessibility />
-            Accesibility
+            {t("footer.accessibility.title")}
           </p>
           <ul className="text-sm flex flex-col gap-2">
-            <li className="hover:scale-110 transition-transform">
-              <a href="/host">Languages</a>
+            <li>
+              <a href="/host">{t("footer.accessibility.languages")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/host-guide">Contrast</a>
+            <li>
+              <a href="/host-guide">{t("footer.accessibility.contrast")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/safety">Text Size</a>
+            <li>
+              <a href="/safety">{t("footer.accessibility.text")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/support">Screen Reader</a>
+            <li>
+              <a href="/support">{t("footer.accessibility.reader")}</a>
             </li>
-            <li className="hover:scale-110 transition-transform">
-              <a href="/support">Guides</a>
+            <li>
+              <a href="/support">{t("footer.accessibility.guides")}</a>
             </li>
           </ul>
         </div>
+
         {/* Contact */}
-        <div className=" flex flex-col items-end gap-2 text-sm">
+        <div className="flex flex-col items-end gap-2 text-sm">
           <p className="font-semibold flex gap-2">
             <FaEnvelope />
-            Contact
+            {t("footer.contact.title")}
           </p>
-          <p>help@quickobooker.com</p>
-          <p>London, Ontario, Canada.</p>
-          <p> + 1 (437) 669-1234</p>
+          <p>{t("footer.contact.email")}</p>
+          <p>{t("footer.contact.location")}</p>
+          <p>{t("footer.contact.phone")}</p>
         </div>
       </nav>
     </footer>

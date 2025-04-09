@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { quickBookerLogo } from "../media";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { MdLanguage } from "react-icons/md";
@@ -13,10 +14,10 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
-  function handleLanguage(lang) {
+  const handleLanguage = (lang) => {
     i18n.changeLanguage(lang);
     setCurrentLanguage(lang);
-  }
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -24,6 +25,7 @@ const Navbar = () => {
 
   return (
     <div>
+      {/* Top bar message */}
       <div className="text-sm top-nav text-center py-3 bg-gradient-to-r from-blueCompany to-blue-500 text-white font-bold">
         <p>{t("topBar.news")}</p>
       </div>
@@ -31,6 +33,7 @@ const Navbar = () => {
       {/* Main Navigation */}
       <nav>
         <div className="p-sma_pad navigation flex items-center justify-between md:p-mid_pad">
+          {/* Logo */}
           <div className="logo">
             <Link to="/">
               <img
@@ -40,9 +43,11 @@ const Navbar = () => {
               />
             </Link>
           </div>
+
+          {/* Desktop Menu */}
           <ul className="hidden md:flex gap-6 items-center">
-            <Link to="/">Home</Link>
-            <Link to="/signup">Sign up</Link>
+            <Link to="/">{t("navbar.home")}</Link>
+            <Link to="/signup">{t("navbar.signup")}</Link>
             <ThemeToggle />
             <li className="text-sm">
               {currentLanguage === "en" ? (
@@ -51,7 +56,7 @@ const Navbar = () => {
                   onClick={() => handleLanguage("fr")}
                 >
                   <MdLanguage />
-                  FRA
+                  {t("navbar.language.fra")}
                 </button>
               ) : (
                 <button
@@ -59,12 +64,13 @@ const Navbar = () => {
                   onClick={() => handleLanguage("en")}
                 >
                   <MdLanguage />
-                  ENG
+                  {t("navbar.language.eng")}
                 </button>
               )}
             </li>
           </ul>
-          {/* Hamburger Menu Button */}
+
+          {/* Hamburger Button */}
           <button
             className="text-4xl text-blueCompany md:hidden"
             onClick={toggleMobileMenu}
@@ -78,26 +84,26 @@ const Navbar = () => {
           <div className="md:hidden bg-white border-t border-gray-200">
             <ul className="flex flex-col gap-4 p-4">
               <li>
-                <a className="nav-lins block" href="#">
-                  Home
+                <Link to="/" className="nav-lins block">
+                  {t("navbar.home")}
+                </Link>
+              </li>
+              <li>
+                <a className="nav-lins block" href="#features">
+                  {t("navbar.features")}
                 </a>
               </li>
               <li>
-                <a className="nav-lins block" href="#">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a className="nav-lins block" href="#">
-                  Pricing
+                <a className="nav-lins block" href="#pricing">
+                  {t("navbar.pricing")}
                 </a>
               </li>
               <li>
                 <a
                   className="started-btn bg-blueCompany text-white py-3 px-4 rounded-full block text-center"
-                  href="#"
+                  href="#signup"
                 >
-                  Get Started
+                  {t("navbar.getStarted")}
                 </a>
               </li>
             </ul>

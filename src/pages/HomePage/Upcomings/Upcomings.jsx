@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { fifa, cricket, clean, kpop } from "../../../components/media"; // Asegúrate de que estos sean importados correctamente
+import { fifa, cricket, clean, kpop } from "../../../components/media";
 
 const events = [
   {
@@ -33,22 +34,19 @@ const events = [
 ];
 
 const EventCard = ({ event }) => {
+  const { t } = useTranslation("global");
   const [isAttending, setIsAttending] = useState(false);
   const [isRegistered, setIsRegistered] = useState(false);
   const [registrationId, setRegistrationId] = useState(null);
   const [formData, setFormData] = useState({ name: "", email: "" });
 
-  const generateId = () => {
-    return Math.floor(1000 + Math.random() * 9000); // Genera un ID de 4 dígitos
-  };
+  const generateId = () => Math.floor(1000 + Math.random() * 9000);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setRegistrationId(generateId());
     setIsRegistered(true);
-    setTimeout(() => {
-      setIsAttending(false);
-    }, 3000);
+    setTimeout(() => setIsAttending(false), 3000);
   };
 
   return (
@@ -70,24 +68,30 @@ const EventCard = ({ event }) => {
         {isAttending ? (
           isRegistered ? (
             <p className="text-green-600 font-semibold mt-4">
-              You have successfully registered!<br />
-              Your Identification ID is: <span className="font-bold">{registrationId}</span>
+              {t("events.success.message")}
+              <br />
+              {t("events.success.idText")}{" "}
+              <span className="font-bold">{registrationId}</span>
             </p>
           ) : (
             <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder={t("events.form.namePlaceholder")}
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 required
                 className="border p-2 rounded-lg text-gray-700"
               />
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder={t("events.form.emailPlaceholder")}
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="border p-2 rounded-lg text-gray-700"
               />
@@ -95,7 +99,7 @@ const EventCard = ({ event }) => {
                 type="submit"
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
               >
-                Submit
+                {t("events.form.submitBtn")}
               </button>
             </form>
           )
@@ -105,7 +109,7 @@ const EventCard = ({ event }) => {
               onClick={() => setIsAttending(true)}
               className="border border-blue-500 text-blue-600 px-4 py-1 rounded-lg hover:bg-blue-500 hover:text-white transition"
             >
-              Attend
+              {t("events.attendBtn")}
             </button>
           </div>
         )}
@@ -115,11 +119,12 @@ const EventCard = ({ event }) => {
 };
 
 const Upcomings = () => {
+  const { t } = useTranslation("global");
   const [selectedTab, setSelectedTab] = useState("upcoming");
 
   return (
     <div className="p-sma_pad md:p-mid_pad">
-      <h3 className="">Public Events</h3>
+      <h3>{t("events.title")}</h3>
       <div className="flex gap-6 border-b mb-6">
         <button
           className={`pb-2 ${
@@ -129,7 +134,7 @@ const Upcomings = () => {
           }`}
           onClick={() => setSelectedTab("upcoming")}
         >
-          Upcoming
+          {t("events.tabs.upcoming")}
         </button>
         <button
           className={`pb-2 ${
@@ -139,14 +144,14 @@ const Upcomings = () => {
           }`}
           onClick={() => setSelectedTab("past")}
         >
-          Past
+          {t("events.tabs.past")}
         </button>
       </div>
       <div className="flex flex-col gap-2">
         {selectedTab === "upcoming" && events.length > 0 ? (
           events.map((event) => <EventCard key={event.id} event={event} />)
         ) : (
-          <p className="text-gray-500">No events available.</p>
+          <p className="text-gray-500">{t("events.noEvents")}</p>
         )}
       </div>
     </div>

@@ -6,20 +6,18 @@ import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
-  const [t, i18n] = useTranslation("global");
+  const [t] = useTranslation("global");
   const [selectedForm, setSelectedForm] = useState(null);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
-  const [city, setCity] = useState(""); // Añadir estado para ciudad
+  const [city, setCity] = useState("");
 
-  // Crea la instancia de useNavigate
   const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -27,9 +25,7 @@ const SignUp = () => {
         password
       );
       console.log("User registered:", userCredential.user);
-
-      // Redirigir al UserView después del registro exitoso
-      navigate("/userview"); // Redirige a la página de login de usuario
+      navigate("/userview");
     } catch (error) {
       console.error("Error signing up:", error);
     }
@@ -79,13 +75,13 @@ const SignUp = () => {
 
         {/* Forms */}
         <div className="w-full max-w-md">
-          {/* Client Sign Up Form */}
           {selectedForm === "client" && (
             <div className="bg-white rounded-lg shadow-sm p-6 animate-fadeIn">
               <form className="space-y-4" onSubmit={handleSignUp}>
+                {/* Full Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name
+                    {t("signUp.form.fullNameLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -94,16 +90,17 @@ const SignUp = () => {
                     <input
                       type="text"
                       className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
-                      placeholder="John Doe"
+                      placeholder={t("signUp.form.fullNamePlaceholder")}
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                     />
                   </div>
                 </div>
 
+                {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
+                    {t("signUp.form.emailLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -112,16 +109,17 @@ const SignUp = () => {
                     <input
                       type="email"
                       className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
-                      placeholder="you@example.com"
+                      placeholder={t("signUp.form.emailPlaceholder")}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
 
+                {/* Password */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Password
+                    {t("signUp.form.passwordLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -130,17 +128,17 @@ const SignUp = () => {
                     <input
                       type="password"
                       className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
-                      placeholder="••••••••"
+                      placeholder={t("signUp.form.passwordPlaceholder")}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                 </div>
 
-                {/* Campo de Ciudad */}
+                {/* City */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    City
+                    {t("signUp.form.cityLabel")}
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -149,7 +147,7 @@ const SignUp = () => {
                     <input
                       type="text"
                       className="pl-10 w-full rounded-md border border-gray-300 py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
-                      placeholder="Enter your city"
+                      placeholder={t("signUp.form.cityPlaceholder")}
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                     />
@@ -160,17 +158,16 @@ const SignUp = () => {
                   type="submit"
                   className="w-full bg-blue-600 text-white rounded-md py-2 px-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:ring-offset-2"
                 >
-                  Sign Up
+                  {t("signUp.form.submitButton")}
                 </button>
               </form>
             </div>
           )}
 
-          {/* Business Sign Up Message */}
           {selectedForm === "business" && (
             <div className="bg-white rounded-lg shadow-sm p-6 animate-fadeIn">
               <p className="text-lg text-gray-700">
-                Contact our team to find the best plan for you.
+                {t("signUp.businessMessage")}
               </p>
             </div>
           )}

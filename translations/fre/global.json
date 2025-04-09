@@ -19,13 +19,6 @@
       "bars": "Bars et salons"
     }
   },
-  "signUp": {
-    "title": "Choisissez votre type de compte",
-    "clientOptionTitle": "Inscrivez-vous en tant que client",
-    "clientOptionDescription": "Trouvez et réservez des lieux parfaits pour vos événements.",
-    "ownerOptionTitle": "Inscrivez-vous en tant que propriétaire d'entreprise",
-    "ownerOptionDescription": "Inscrivez votre lieu et commencez à accepter des réservations."
-  },
   "browseVenue": {
     "title": "Parcourir par type de lieu",
     "available": "{{count}} disponibles maintenant",
@@ -64,5 +57,101 @@
       "wonderful": "Merveilleux",
       "superb": "Superbe"
     }
+  },
+  "events": {
+    "title": "Événements publics",
+    "tabs": {
+      "upcoming": "À venir",
+      "past": "Passés"
+    },
+    "noEvents": "Aucun événement disponible.",
+    "attendBtn": "Participer",
+    "form": {
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "Votre e-mail",
+      "submitBtn": "Soumettre"
+    },
+    "success": {
+      "message": "Vous vous êtes inscrit avec succès !",
+      "idText": "Votre identifiant est :"
+    }
+  },
+  "footer": {
+    "support": {
+      "title": "Assistance",
+      "faq": "FAQ",
+      "contact": "Nous contacter",
+      "terms": "Conditions",
+      "privacy": "Politique de confidentialité"
+    },
+    "discover": {
+      "title": "Découvrir",
+      "spaces": "Trouver un lieu",
+      "how": "Comment ça marche",
+      "pricing": "Tarification",
+      "reviews": "Avis des clients"
+    },
+    "list": {
+      "title": "Répertorier votre espace",
+      "host": "Devenir hôte",
+      "guide": "Guide de l'hôte",
+      "safety": "Sécurité",
+      "support": "Assistance aux hôtes"
+    },
+    "find": {
+      "title": "Retrouvez-nous",
+      "instagram": "Instagram",
+      "linkedin": "Linkedin",
+      "youtube": "Youtube",
+      "facebook": "Facebook"
+    },
+    "accessibility": {
+      "title": "Accessibilité",
+      "languages": "Langues",
+      "contrast": "Contraste",
+      "text": "Taille du texte",
+      "reader": "Lecteur d'écran",
+      "guides": "Guides"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "help@quickobooker.com",
+      "location": "London, Ontario, Canada.",
+      "phone": "+ 1 (437) 669-1234"
+    }
+  },
+  "navbar": {
+    "home": "Accueil",
+    "signup": "S'inscrire",
+    "features": "Fonctionnalités",
+    "pricing": "Tarification",
+    "getStarted": "Commencer",
+    "language": {
+      "eng": "ANG",
+      "fra": "FRA"
+    }
+  },
+  "signUp": {
+    "title": "Choisissez votre type de compte",
+    "clientOptionTitle": "Inscrivez-vous en tant que client",
+    "clientOptionDescription": "Trouvez et réservez des lieux parfaits pour vos événements.",
+    "ownerOptionTitle": "Inscrivez-vous en tant que propriétaire d'entreprise",
+    "ownerOptionDescription": "Inscrivez votre lieu et commencez à accepter des réservations.",
+    "form": {
+      "fullNameLabel": "Nom complet",
+      "fullNamePlaceholder": "Jean Dupont",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "vous@exemple.com",
+      "passwordLabel": "Mot de passe",
+      "passwordPlaceholder": "••••••••",
+      "cityLabel": "Ville",
+      "cityPlaceholder": "Entrez votre ville",
+      "submitButton": "S'inscrire"
+    },
+    "businessMessage": "Contactez notre équipe pour trouver le meilleur plan pour vous."
+  },
+  "notFound": {
+    "title": "404 Introuvable",
+    "message": "La page que vous recherchez n'existe pas."
   }
 }
