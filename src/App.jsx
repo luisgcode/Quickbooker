@@ -15,7 +15,7 @@ import Chatbot from "./components/chatBot/Chatbot";
 
 function App() {
   return (
-    <div className="dark:bg-darkColorBG">
+    <div className="dark:bg-darkBG dark:text-darkText">
       <Navbar />
       <Chatbot />
       <Routes>

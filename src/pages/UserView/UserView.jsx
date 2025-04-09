@@ -49,7 +49,10 @@ const UserView = () => {
     } else {
       updatedServices = updatedServices.filter((service) => service !== name);
     }
-    setBookingDetails({ ...bookingDetails, additionalServices: updatedServices });
+    setBookingDetails({
+      ...bookingDetails,
+      additionalServices: updatedServices,
+    });
   };
 
   const calculateTotalPrice = () => {
@@ -67,7 +70,8 @@ const UserView = () => {
 
     // Additional services pricing
     if (bookingDetails.additionalServices.includes("catering")) total += 500;
-    if (bookingDetails.additionalServices.includes("audio-visual")) total += 300;
+    if (bookingDetails.additionalServices.includes("audio-visual"))
+      total += 300;
     if (bookingDetails.additionalServices.includes("decorations")) total += 400;
 
     return total;
@@ -115,7 +119,8 @@ const UserView = () => {
                   />
                 </svg>
                 <p>
-                  {venue.address.street}, {venue.address.city}, {venue.address.province}
+                  {venue.address.street}, {venue.address.city},{" "}
+                  {venue.address.province}
                 </p>
               </div>
 
@@ -222,11 +227,14 @@ const UserView = () => {
               </svg>
             </button>
 
-            <h2 className="text-xl font-bold mb-4">Book {selectedVenue.name}</h2>
+            <h2 className="text-xl font-bold mb-4">
+              Book {selectedVenue.name}
+            </h2>
             {bookingConfirmed ? (
               <div className="text-center">
                 <p className="text-green-600 font-semibold">
-                  Thank you for your order! Details have been sent to your email.
+                  Thank you for your order! Details have been sent to your
+                  email.
                 </p>
                 <button
                   onClick={() => setShowForm(false)}
