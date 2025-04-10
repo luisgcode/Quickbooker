@@ -8,8 +8,10 @@ const AdminView = () => {
   const [editingIndex, setEditingIndex] = useState(null);
   const [editedVenue, setEditedVenue] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const [newVenue, setNewVenue] = useState({
     name: "",
+    category: "", // ✅ new
     address: {
       street: "",
       city: "",
@@ -430,6 +432,9 @@ const AdminView = () => {
                     <h2 className="font-bold mt-4 lg:mt-0 mb-3 dark:text-[#e8e8e8]">
                       {venue.name}
                     </h2>
+                    <p className="text-sm text-gray-600 mb-1 dark:text-[#b0b0b0]">
+                      Category: {venue.category || "Unspecified"}
+                    </p>
                     <div className="flex items-center text-gray-600 dark:text-[#b0b0b0] mb-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -470,6 +475,7 @@ const AdminView = () => {
                       </svg>
                       <p>{venue.contact.phone}</p>
                     </div>
+
                     {venue.amenities && venue.amenities.length > 0 && (
                       <div className="flex items-center text-sm text-gray-600 dark:text-[#b0b0b0]">
                         <svg
@@ -487,6 +493,7 @@ const AdminView = () => {
                         <p>{venue.amenities.slice(0, 3).join(", ")}...</p>
                       </div>
                     )}
+
                     <div className="mt-3 flex space-x-2">
                       <button
                         className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition"
@@ -548,6 +555,21 @@ const AdminView = () => {
                     value={newVenue.name}
                     onChange={(e) => handleNewVenueChange(e, "name")}
                   />
+
+                  <select
+                    className="w-full p-2 border rounded bg-white dark:bg-[#212121] dark:text-[#e8e8e8]"
+                    value={newVenue.category}
+                    onChange={(e) => handleNewVenueChange(e, "category")}
+                  >
+                    <option value="conference">Conference</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="concert">Concert</option>
+                    <option value="private">Music Studio</option>
+                    <option value="private">Private Event</option>
+                    <option value="private">Private Event</option>
+                    <option value="private">Private Event</option>
+                    <option value="private">Other</option>
+                  </select>
 
                   {/* Imagen */}
                   <div>

@@ -7,12 +7,15 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {
   const [t] = useTranslation("global");
-  const [selectedForm, setSelectedForm] = useState(null);
+  const [selectedForm, setSelectedForm] = useState("client");
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [city, setCity] = useState("");
+
+  const [businessEmail, setBusinessEmail] = useState("");
+  const [businessPassword, setBusinessPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -31,14 +34,28 @@ const SignUp = () => {
     }
   };
 
+  const handleBusinessSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        businessEmail,
+        businessPassword
+      );
+      console.log("Business user registered:", userCredential.user);
+      navigate("/userview");
+    } catch (error) {
+      console.error("Error signing up business user:", error);
+    }
+  };
+
   return (
-    <section className="dark:bg-[#212121] dark:text-[#e8e8e8]">
+    <section className="dark:bg-[#212121] dark:text-[#e8e8e8] mb-20">
       <div className="flex flex-col items-center">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-[#e8e8e8] mb-8">
           {t("signUp.title")}
         </h2>
 
-        {/* Selection Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full max-w-2xl">
           <button
             onClick={() => setSelectedForm("client")}
@@ -73,12 +90,11 @@ const SignUp = () => {
           </button>
         </div>
 
-        {/* Forms */}
         <div className="w-full max-w-md">
           {selectedForm === "client" && (
             <div className="bg-white dark:bg-[#212121] rounded-lg shadow-sm p-6 animate-fadeIn">
+              {/* client form */}
               <form className="space-y-4" onSubmit={handleSignUp}>
-                {/* Full Name */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.fullNameLabel")}
@@ -97,7 +113,6 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                {/* Email */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.emailLabel")}
@@ -116,7 +131,6 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                {/* Password */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.passwordLabel")}
@@ -135,7 +149,6 @@ const SignUp = () => {
                   </div>
                 </div>
 
-                {/* City */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
                     {t("signUp.form.cityLabel")}
@@ -166,9 +179,50 @@ const SignUp = () => {
 
           {selectedForm === "business" && (
             <div className="bg-white dark:bg-[#212121] rounded-lg shadow-sm p-6 animate-fadeIn">
-              <p className="text-lg text-gray-700 dark:text-[#b0b0b0]">
-                {t("signUp.businessMessage")}
-              </p>
+              <form className="space-y-4" onSubmit={handleBusinessSignUp}>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
+                    {t("signUp.form.emailLabel")}
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <MdEmail className="h-5 w-5 text-gray-400 dark:text-[#b0b0b0]" />
+                    </div>
+                    <input
+                      type="email"
+                      className="pl-10 w-full rounded-md border border-gray-300 dark:border-[#444] py-2 px-3 bg-white dark:bg-[#212121] text-gray-900 dark:text-[#e8e8e8] placeholder-gray-400 dark:placeholder-[#b0b0b0] focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
+                      placeholder={t("signUp.form.emailPlaceholder")}
+                      value={businessEmail}
+                      onChange={(e) => setBusinessEmail(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-[#b0b0b0] mb-1">
+                    {t("signUp.form.passwordLabel")}
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <MdLock className="h-5 w-5 text-gray-400 dark:text-[#b0b0b0]" />
+                    </div>
+                    <input
+                      type="password"
+                      className="pl-10 w-full rounded-md border border-gray-300 dark:border-[#444] py-2 px-3 bg-white dark:bg-[#212121] text-gray-900 dark:text-[#e8e8e8] placeholder-gray-400 dark:placeholder-[#b0b0b0] focus:outline-none focus:ring-2 focus:ring-blueCompany focus:border-blueCompany"
+                      placeholder={t("signUp.form.passwordPlaceholder")}
+                      value={businessPassword}
+                      onChange={(e) => setBusinessPassword(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white rounded-md py-2 px-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blueCompany focus:ring-offset-2"
+                >
+                  {t("signUp.form.submitButton")}
+                </button>
+              </form>
             </div>
           )}
         </div>

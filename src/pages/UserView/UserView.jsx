@@ -6,6 +6,7 @@ const UserView = () => {
 
   const [data, setData] = useState([]);
   const [selectedVenue, setSelectedVenue] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [bookingDetails, setBookingDetails] = useState({
     name: "",
@@ -60,18 +61,15 @@ const UserView = () => {
 
   const calculateTotalPrice = () => {
     let total = 0;
-    // Capacity pricing
     if (bookingDetails.capacity === "50") total += 500;
     if (bookingDetails.capacity === "100") total += 1000;
     if (bookingDetails.capacity === "200") total += 2000;
 
-    // Setup pricing
     if (bookingDetails.setup === "theater") total += 200;
     if (bookingDetails.setup === "u-shape") total += 300;
     if (bookingDetails.setup === "boardroom") total += 400;
     if (bookingDetails.setup === "classroom") total += 350;
 
-    // Additional services pricing
     if (bookingDetails.additionalServices.includes("catering")) total += 500;
     if (bookingDetails.additionalServices.includes("audio-visual"))
       total += 300;
@@ -91,120 +89,129 @@ const UserView = () => {
       <h1 className="text-3xl font-bold text-gray-900 mb-6">
         {t("userview.title")}
       </h1>
+      <input
+        type="text"
+        placeholder="Search for a venue..."
+        className="w-full md:w-1/2 p-2 mb-6 border border-gray-300 rounded-md"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
 
       <div className="space-y-6">
-        {data.map((venue, index) => (
-          <div
-            key={index}
-            className="flex items-center border-b pb-4 hover:shadow-lg transition-shadow duration-300 rounded-lg p-4"
-          >
-            {/* Venue Image */}
-            <img
-              src={venue.image}
-              alt={venue.name}
-              className="w-40 h-28 object-cover rounded-md mr-6 shadow-sm"
-            />
-
-            {/* Venue Details */}
-            <div className="flex-1">
-              <h5 className="font-bold mb-3">{venue.name}</h5>
-              <div className="flex items-center text-gray-600 mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>
-                  {venue.address.street}, {venue.address.city},{" "}
-                  {venue.address.province}
-                </p>
-              </div>
-
-              <div className="flex items-center text-gray-700 text-sm mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                <p>{venue.contact.phone}</p>
-                <span className="mx-2">|</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                </svg>
-                <p>{venue.contact.email}</p>
-              </div>
-
-              {/* Max Capacity */}
-              <div className="flex items-center text-gray-700 text-sm mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
-                </svg>
-                <p>
-                  {t("userview.maxCapacity")}: {venue.max_capacity} people
-                </p>
-              </div>
-
-              {/* Amenities */}
-              <div className="flex items-center text-sm text-gray-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p>{venue.amenities.slice(0, 3).join(", ")}...</p>
-              </div>
-            </div>
-
-            {/* Booking Button */}
-            <button
-              onClick={() => handleBookVenue(venue)}
-              className="ml-auto py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition flex items-center"
+        {data
+          .filter((venue) =>
+            venue.name.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .map((venue, index) => (
+            <div
+              key={index}
+              className="flex flex-col sm:flex-row sm:items-center border-b pb-4 hover:shadow-lg transition-shadow duration-300 rounded-lg p-4"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+              <img
+                src={venue.image}
+                alt={venue.name}
+                className="w-full sm:w-40 h-28 object-cover rounded-md sm:mr-6 mb-4 sm:mb-0 shadow-sm"
+              />
+
+              <div className="flex-1">
+                <h5 className="font-bold mb-3">{venue.name}</h5>
+                <div className="flex flex-col sm:flex-row sm:items-center text-gray-600 mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <p>
+                    {venue.address.street}, {venue.address.city},{" "}
+                    {venue.address.province}
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-center text-gray-700 text-sm mb-2 gap-1 sm:gap-4">
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
+                    <p>{venue.contact.phone}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    <p>{venue.contact.email}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center text-gray-700 text-sm mb-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                  </svg>
+                  <p>
+                    {t("userview.maxCapacity")}: {venue.max_capacity} people
+                  </p>
+                </div>
+
+                <div className="flex items-center text-sm text-gray-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 mr-2"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <p>{venue.amenities.slice(0, 3).join(", ")}...</p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => handleBookVenue(venue)}
+                className="w-full sm:w-auto mt-4 sm:mt-0 sm:ml-auto py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition flex items-center justify-center"
               >
-                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                <path
-                  fillRule="evenodd"
-                  d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              {t("userview.bookButton")}
-            </button>
-          </div>
-        ))}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                  <path
+                    fillRule="evenodd"
+                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                {t("userview.bookButton")}
+              </button>
+            </div>
+          ))}
       </div>
 
       {/* Booking Form Modal */}

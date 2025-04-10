@@ -111,33 +111,47 @@ const Navbar = () => {
                 <Link
                   to="/"
                   className="nav-lins block text-gray-800 dark:text-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {t("navbar.home")}
                 </Link>
               </li>
               <li>
-                <a
+                <Link
+                  to="/signup"
                   className="nav-lins block text-gray-800 dark:text-white"
-                  href="#features"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {t("navbar.features")}
-                </a>
+                  {t("navbar.signup")}
+                </Link>
               </li>
               <li>
-                <a
-                  className="nav-lins block text-gray-800 dark:text-white"
-                  href="#pricing"
-                >
-                  {t("navbar.pricing")}
-                </a>
+                <ThemeToggle />
               </li>
-              <li>
-                <a
-                  className="started-btn bg-blueCompany text-white py-3 px-4 rounded-full block text-center"
-                  href="#signup"
-                >
-                  {t("navbar.getStarted")}
-                </a>
+              <li className="text-sm">
+                {currentLanguage === "en" ? (
+                  <button
+                    className="flex items-center gap-1 text-blueCompany dark:text-white min-w-[45px]"
+                    onClick={() => {
+                      handleLanguage("fr");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <MdLanguage />
+                    {t("navbar.language.fra")}
+                  </button>
+                ) : (
+                  <button
+                    className="flex items-center gap-1 text-blueCompany dark:text-white min-w-[45px]"
+                    onClick={() => {
+                      handleLanguage("en");
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    <MdLanguage />
+                    {t("navbar.language.eng")}
+                  </button>
+                )}
               </li>
             </ul>
           </div>
